@@ -1,23 +1,29 @@
-<mxfile host="app.diagrams.net" modified="2024-03-02T12:30:35.168Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="ls2WPQvnuuqM0cflVPkS" version="24.0.0" type="github">
+<mxfile host="app.diagrams.net" modified="2024-03-02T23:40:58.554Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="xzDqUlhb40uOBbbsEwBW" version="24.0.0" type="github">
   <diagram name="Page-1" id="jh1fKFOcZe9OwH0CIHgL">
-    <mxGraphModel dx="677" dy="337" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1235" dy="614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="UZcGgsPrMFJg8tXiB4H0-1" value="Storage&lt;div&gt;&lt;div&gt;&lt;br&gt;product_Id&lt;div&gt;product_name&lt;/div&gt;&lt;div&gt;category_id&lt;/div&gt;&lt;div&gt;quantity - son&lt;/div&gt;&lt;div&gt;price&lt;/div&gt;&lt;div&gt;img&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="410" y="490" width="90" height="180" as="geometry" />
+        <mxCell id="UZcGgsPrMFJg8tXiB4H0-1" value="product&lt;div&gt;&lt;div&gt;&lt;br&gt;product_Id&lt;div&gt;product_name&lt;/div&gt;&lt;div&gt;category_id&lt;/div&gt;&lt;div&gt;quantity - son&lt;/div&gt;&lt;div&gt;price&lt;/div&gt;&lt;div&gt;img&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="330" y="520" width="90" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="UZcGgsPrMFJg8tXiB4H0-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="UZcGgsPrMFJg8tXiB4H0-3" target="UZcGgsPrMFJg8tXiB4H0-1">
+        <mxCell id="UZcGgsPrMFJg8tXiB4H0-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="UZcGgsPrMFJg8tXiB4H0-3" target="UZcGgsPrMFJg8tXiB4H0-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="UZcGgsPrMFJg8tXiB4H0-3" value="Category&lt;br&gt;&lt;br&gt;id&lt;div&gt;caregory_name&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="210" y="400" width="100" height="150" as="geometry" />
+        <mxCell id="UZcGgsPrMFJg8tXiB4H0-3" value="Category&lt;br&gt;&lt;br&gt;Catergory_id&lt;div&gt;caregory_name&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="110" y="375" width="100" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="UZcGgsPrMFJg8tXiB4H0-12" value="&lt;div&gt;ROLE&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;Id&lt;div&gt;Name&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="710" y="350" width="120" height="90" as="geometry" />
+        <mxCell id="UZcGgsPrMFJg8tXiB4H0-12" value="&lt;div&gt;ROLE&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;Role_Id&lt;div&gt;Name&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="305" y="410" width="120" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="UZcGgsPrMFJg8tXiB4H0-16" value="Employee&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;id&lt;/div&gt;&lt;div&gt;Full name&lt;br&gt;age&lt;/div&gt;&lt;div&gt;phone number&lt;/div&gt;&lt;div&gt;salary&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="570" y="490" width="120" height="180" as="geometry" />
+        <mxCell id="UZcGgsPrMFJg8tXiB4H0-16" value="Employee&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Employee_id&lt;/div&gt;&lt;div&gt;Full name&lt;br&gt;age&lt;/div&gt;&lt;div&gt;phone number&lt;/div&gt;&lt;div&gt;salary&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="490" y="525" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="AOhggQjFDFaAq5eLw-q_-1" value="Permission&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Permission_id&lt;/div&gt;&lt;div&gt;Pemission Name&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="275" width="120" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="AOhggQjFDFaAq5eLw-q_-2" value="Stats&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;product_quantity&lt;/div&gt;&lt;div&gt;product_category_quantity&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="280" width="160" height="110" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
