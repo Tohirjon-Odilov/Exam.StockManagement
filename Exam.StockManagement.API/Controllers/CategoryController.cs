@@ -6,7 +6,7 @@ namespace Exam.StockManagement.API.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> GetById(int id)
         {
             return Ok("Salom");

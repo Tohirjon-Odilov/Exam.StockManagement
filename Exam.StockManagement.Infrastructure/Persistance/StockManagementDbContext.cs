@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Exam.StockManagement.Domain.Entities.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Exam.StockManagement.Infrastructure.Persistance
 {
@@ -8,9 +9,13 @@ namespace Exam.StockManagement.Infrastructure.Persistance
         public StockManagementDbContext(DbContextOptions<StockManagementDbContext> options)
             : base(options)
         {
+            Database.Migrate();
         }
 
-        public virtual DbSet<Exam.StockManagement.Domain.Entities.Models.User> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Stats> Stats { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
     }
 
 
