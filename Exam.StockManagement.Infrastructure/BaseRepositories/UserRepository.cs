@@ -1,4 +1,4 @@
-﻿using Exam.StockManagement.Application.Abstractions;
+﻿using Exam.StockManagement.Application.Abstractions.IRepository;
 using Exam.StockManagement.Domain.Entities.Models;
 using Exam.StockManagement.Infrastructure.Persistance;
 
