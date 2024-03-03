@@ -1,6 +1,6 @@
 ﻿using Exam.StockManagement.Domain.Entities.Models;
 
-namespace Exam.StockManagement.Application.Abstractions
+namespace Exam.StockManagement.Application.Abstractions.IRepository
 {
     public interface IUserRepository : IBaseRepository<User>
     {
