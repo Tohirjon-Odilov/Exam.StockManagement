@@ -6,10 +6,3 @@
         public string Password { get; set; }
     }
 }
-
-namespace Exam.StockManagement.Domain
-{
-    public class RequestSignUp
-    {
-    }
-}

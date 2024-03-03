@@ -1,5 +1,7 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.DTOs;
+using Exam.StockManagement.Domain.Entities.Models;
+using Exam.StockManagement.Domain.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Globalization;
@@ -20,14 +22,21 @@ namespace Exam.StockManagement.Application.Services.AuthServices
             _userService = userService;
         }
 
+        public async Task<string> CorrectEmail(RegisterLogin user)
+        {
+            var result = await _userService.GetByLogin(user.Login);
+            if (result.Code == user.Code)
+            {
+                return "Login successfully!";
+            }
+            throw new NotFoundException();
+        }
+
         public async Task<ResponseLogin> GenerateToken(RequestLogin user)
         {
             if (user == null)
             {
-                return new ResponseLogin()
-                {
-                    Token = "User Not Found"
-                };
+                throw new NotFoundException();
             }
 
             if (await UserExist(user))
@@ -83,9 +92,12 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
         }
 
-
         public async Task<bool> UserExist(RequestLogin user)
         {
+            if (user == null)
+            {
+                throw new NotFoundException();
+            }
 
             var result = await _userService.GetByLogin(user.Login);
 
@@ -93,8 +105,13 @@ namespace Exam.StockManagement.Application.Services.AuthServices
             {
                 return true;
             }
-
             return false;
+        }
+
+        public async Task<User> RegisterUser(RequestSignUp signUp)
+        {
+            var result = await _userService.Create(signUp);
+            return result;
         }
     }
 }

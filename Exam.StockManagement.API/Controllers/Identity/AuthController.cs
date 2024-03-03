@@ -1,11 +1,11 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IServices;
-using Exam.StockManagement.Domain;
 using Exam.StockManagement.Domain.Entities.DTOs;
+using Exam.StockManagement.Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exam.StockManagement.API.Controllers.Identity
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -17,16 +17,28 @@ namespace Exam.StockManagement.API.Controllers.Identity
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(RequestLogin model)
-        {
-            var result = await _authService.GenerateToken(model);
-
-            return Ok(result.Token);
-        }
-
         public async Task<IActionResult> SignUp(RequestSignUp model)
         {
-            return Ok(model);
+            var result = await _authService.RegisterUser(model);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(RequestLogin model)
+        {
+            var result = await _authService.UserExist(model);
+            if (result)
+            {
+                return Ok(result);
+            }
+            throw new NotFoundException();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AcceptUser(RequestLogin model)
+        {
+            var result = await _authService.GenerateToken(model);
+            return Ok(result);
         }
     }
 }
