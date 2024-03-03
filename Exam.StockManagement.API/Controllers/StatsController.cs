@@ -8,10 +8,26 @@ namespace Exam.StockManagement.API.Controllers
     [Authorize]
     public class StatsController : ControllerBase
     {
-        [HttpPost]
-        public async Task<IActionResult> GetById(int id)
+
+        [HttpGet]
+        public async Task<IActionResult> GetQuantity()
         {
-            return Ok("Salom");
+            return Ok();
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetCategoryQuantity()
+        {
+            return Ok();
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetSum()
+        {
+            return Ok();
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetCategorySum()
+        {
+            return Ok();
         }
     }
 }
