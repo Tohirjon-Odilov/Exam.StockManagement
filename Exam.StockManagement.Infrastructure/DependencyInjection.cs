@@ -1,4 +1,6 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IRepository;
+using Exam.StockManagement.Application.Abstractions.IServices;
+using Exam.StockManagement.Application.Services;
 using Exam.StockManagement.Infrastructure.BaseRepositories;
 using Exam.StockManagement.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +20,7 @@ namespace Exam.StockManagement.Infrastructure
             });
 
             services.AddScoped<IUserRepository, UserRepository>();
+
             //services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
             return services;
         }
