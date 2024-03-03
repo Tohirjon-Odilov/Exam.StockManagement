@@ -7,7 +7,7 @@ namespace Exam.StockManagement.Application.Abstractions.IServices
 {
     public interface IUserService
     {
-        public Task<User> Create(UserDTO userDTO);
+        public Task<User> Create(RequestSignUp signUp);
         public Task<User> GetByName(string name);
         public Task<User> GetById(int Id);
         public Task<User> GetByEmail(string email);

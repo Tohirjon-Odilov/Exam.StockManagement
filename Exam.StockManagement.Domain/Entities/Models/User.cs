@@ -8,7 +8,7 @@ namespace Exam.StockManagement.Domain.Entities.Models
         public string? Email { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public string Role { get; set; }
-        // salom
+        public string? Code { get; set; }
+        public string? Role { get; set; }
     }
 }
