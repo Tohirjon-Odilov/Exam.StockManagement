@@ -4,7 +4,7 @@ using Exam.StockManagement.Infrastructure.Persistance;
 
 namespace Exam.StockManagement.Infrastructure.BaseRepositories
 {
-    public class StatsRepository : BaseRepository<Stats>, IStatsService
+    public class StatsRepository : BaseRepository<Stats>, IStatsRepository
     {
         public StatsRepository(StockManagementDbContext context) : base(context)
         {

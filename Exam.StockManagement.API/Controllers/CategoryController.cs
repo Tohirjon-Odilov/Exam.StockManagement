@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Exam.StockManagement.Application.Abstractions.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exam.StockManagement.API.Controllers
@@ -8,28 +9,42 @@ namespace Exam.StockManagement.API.Controllers
     [Authorize]
     public class CategoryController : ControllerBase
     {
+        private readonly ICategoryService _categoryService;
+
+        public CategoryController(ICategoryService categoryService)
+        {
+            _categoryService = categoryService;
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(string name)
         {
-            return Ok();
+            var result = await _categoryService.Create(name);
+
+            return Ok(result);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok();
+            var result = await _categoryService.GetAll();
+
+            return Ok(result);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(int id)
+        public async Task<IActionResult> Update(int id, string name)
         {
-            return Ok();
+            var result = await _categoryService.Update(id, name);
+
+            return Ok(result);
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            return Ok();
+            var restult = await _categoryService.Delete(id);
+            return Ok("Deleted");
         }
     }
 }

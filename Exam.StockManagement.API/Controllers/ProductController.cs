@@ -11,7 +11,7 @@ namespace Exam.StockManagement.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(int id)
         {
-            return Ok("Salom");
+            return Ok();
         }
 
         [HttpGet]

@@ -12,7 +12,9 @@ namespace Exam.StockManagement.Application
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IEmailSenderService, EmailSenderService>();
-
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IStatsService, StatsService>();
 
             return services;
         }

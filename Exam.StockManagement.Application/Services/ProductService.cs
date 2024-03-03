@@ -1,34 +1,71 @@
 using Exam.StockManagement.Application.Abstractions.IRepository;
+using Exam.StockManagement.Application.Abstractions.IServices;
+using Exam.StockManagement.Domain.Entities.DTOs;
 using Exam.StockManagement.Domain.Entities.Models;
-using System.Linq.Expressions;
 
 namespace Exam.StockManagement.Application.Services
 {
-    public class ProductService : IProductRepository
+    public class ProductService : IProductService
     {
-        public Task<Product> Create(Product entity)
+        private readonly IProductRepository productRepository;
+
+        public ProductService(IProductRepository productRepository)
         {
-            throw new NotImplementedException();
+            this.productRepository = productRepository;
         }
 
-        public Task<bool> Delete(Expression<Func<Product, bool>> expression)
+        public Task<Product> Create(ProductDTO product)
         {
-            throw new NotImplementedException();
+            ArgumentNullException.ThrowIfNull(product);
+
+            var entity = new Product()
+            {
+                CategoryId = product.CategoryId,
+                ProductDescription = product.ProductDescription,
+                ProductName = product.ProductName,
+                ProductPrice = product.ProductPrice,
+                ProductPicture = product.ProductPicture
+            };
+
+            var result = productRepository.Create(entity);
+
+            return result;
         }
 
-        public Task<IEnumerable<Product>> GetAll()
+        public async Task<List<Product>> GetAll()
         {
-            throw new NotImplementedException();
+            ArgumentNullException.ThrowIfNull(productRepository);
+            var result = await productRepository.GetAll();
+            return result.ToList();
         }
 
-        public Task<Product> GetByAny(Expression<Func<Product, bool>> expression)
+        public async Task<string> Update(Product product)
         {
-            throw new NotImplementedException();
+            ArgumentNullException.ThrowIfNull(productRepository);
+
+            var entity = new Product()
+            {
+                CategoryId = product.CategoryId,
+                ProductDescription = product.ProductDescription,
+                ProductName = product.ProductName,
+                ProductPrice = product.ProductPrice,
+                ProductPicture = product.ProductPicture
+            };
+
+            await productRepository.Update(entity);
+
+            return "Ma'lumot yangilandi";
         }
 
-        public Task<Product> Update(Product entity)
+        public async Task<string> Delete(int Id)
         {
-            throw new NotImplementedException();
+            ArgumentNullException.ThrowIfNull(Id);
+
+            var result = await productRepository.Delete(x => x.Id == Id);
+
+            ArgumentNullException.ThrowIfNull(result);
+
+            return "Qo'shildi";
         }
     }
 }

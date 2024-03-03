@@ -1,11 +1,10 @@
 using Exam.StockManagement.Application.Abstractions.IRepository;
+using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.Models;
-using System.Linq.Expressions;
 
 namespace Exam.StockManagement.Application.Services
 {
-    public class CategoryService : ICategoryRepository
-
+    public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _categoryRepository;
 
@@ -14,29 +13,51 @@ namespace Exam.StockManagement.Application.Services
             _categoryRepository = categoryRepository;
         }
 
-        public Task<Category> Create(Category entity)
+        public async Task<Category> Create(string name)
         {
-            throw new NotImplementedException();
+            if (name == null)
+            {
+                throw new ArgumentNullException("name");
+            }
+            var result = await _categoryRepository.Create(new Category { CategoryName = name });
+
+            return result;
         }
 
-        public Task<bool> Delete(Expression<Func<Category, bool>> expression)
+        public async Task<Category> Delete(int id)
         {
-            throw new NotImplementedException();
+            if (id <= 0)
+            {
+                throw new ArgumentNullException("id");
+            }
+
+            var result = await _categoryRepository.Delete(x => x.CategoryId == id);
+
+            if (result)
+            {
+                return new Category { CategoryName = "Deleted" };
+            } else
+            {
+                return new Category { CategoryName = "Not Delete" };
+            }
+
+
         }
 
-        public Task<IEnumerable<Category>> GetAll()
+        public async Task<List<Category>> GetAll()
         {
-            throw new NotImplementedException();
+            var result = await _categoryRepository.GetAll();
+
+            return result.ToList();
         }
 
-        public Task<Category> GetByAny(Expression<Func<Category, bool>> expression)
+        public async Task<Category> Update(int id, string name)
         {
-            throw new NotImplementedException();
-        }
+            var entity = new Category { CategoryId = id, CategoryName = name };
 
-        public Task<Category> Update(Category entity)
-        {
-            throw new NotImplementedException();
+            var result = await _categoryRepository.Update(entity);
+
+            return result;
         }
     }
 }

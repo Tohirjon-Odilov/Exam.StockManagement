@@ -1,32 +1,26 @@
-using Exam.StockManagement.Application.Abstractions.IRepository;
+using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.Models;
-using System.Linq.Expressions;
 
 namespace Exam.StockManagement.Application.Services
 {
     public class StatsService : IStatsService
     {
-        public Task<Stats> Create(Stats entity)
+        public Task<string> Create()
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> Delete(Expression<Func<Stats, bool>> expression)
+        public Task<string> Delete()
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Stats>> GetAll()
+        public Task<List<Category>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Stats> GetByAny(Expression<Func<Stats, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Stats> Update(Stats entity)
+        public Task<string> Update()
         {
             throw new NotImplementedException();
         }

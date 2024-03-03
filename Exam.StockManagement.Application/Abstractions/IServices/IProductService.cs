@@ -1,12 +1,13 @@
+using Exam.StockManagement.Domain.Entities.DTOs;
 using Exam.StockManagement.Domain.Entities.Models;
 
 namespace Exam.StockManagement.Application.Abstractions.IServices
 {
     public interface IProductService
     {
-        public Task<string> Create();
-        public Task<List<Category>> GetAll();
-        public Task<string> Update();
-        public Task<string> Delete();
+        public Task<Product> Create(ProductDTO product);
+        public Task<List<Product>> GetAll();
+        public Task<string> Update(Product product);
+        public Task<string> Delete(int Id);
     }
 }

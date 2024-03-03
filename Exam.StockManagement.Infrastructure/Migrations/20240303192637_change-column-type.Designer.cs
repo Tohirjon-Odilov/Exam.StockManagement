@@ -3,6 +3,7 @@ using System;
 using Exam.StockManagement.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Exam.StockManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(StockManagementDbContext))]
-    partial class StockManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240303192637_change-column-type")]
+    partial class changecolumntype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,6 +70,9 @@ namespace Exam.StockManagement.Infrastructure.Migrations
 
                     b.Property<int>("ProductPrice")
                         .HasColumnType("integer");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
@@ -131,6 +137,9 @@ namespace Exam.StockManagement.Infrastructure.Migrations
 
                     b.Property<string>("Role")
                         .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
