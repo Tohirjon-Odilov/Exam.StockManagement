@@ -1,5 +1,5 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IServices;
-using Exam.StockManagement.Domain.Entities.DTOs;
+using Exam.StockManagement.Domain.Entities.DTOs.Auth;
 using Exam.StockManagement.Domain.Entities.Models;
 using Exam.StockManagement.Domain.Exceptions;
 using Microsoft.Extensions.Configuration;
@@ -24,7 +24,7 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
         public async Task<string> CorrectEmail(RegisterLogin user)
         {
-            var result = await _userService.GetByLogin(user.Email);
+            var result = await _userService.GetByEmail(user.Email);
             if (result.Code == user.Code)
             {
                 return "Login successfully!";
@@ -53,7 +53,7 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
             if (await UserExist(login))
             {
-                var result = await _userService.GetByLogin(user.Email);
+                var result = await _userService.GetByEmail(user.Email);
 
                 List<Claim> claims = new List<Claim>()
                 {
@@ -111,7 +111,7 @@ namespace Exam.StockManagement.Application.Services.AuthServices
                 throw new NotFoundException();
             }
 
-            var result = await _userService.GetByLogin(user.Email);
+            var result = await _userService.GetByEmail(user.Email);
 
             if (result != null)
             {

@@ -1,6 +1,7 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IRepository;
 using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.DTOs;
+using Exam.StockManagement.Domain.Entities.DTOs.Auth;
 using Exam.StockManagement.Domain.Entities.Models;
 using Exam.StockManagement.Domain.Entities.ViewModels;
 using Exam.StockManagement.Domain.Exceptions;
@@ -19,7 +20,6 @@ namespace Exam.StockManagement.Application.Services
 
         public async Task<User> Create(RequestSignUp requestSignUp)
         {
-            //User? hasLogin = await _userRepository.GetByAny(x => x.Login == requestSignUp.Email);
             var hasEmail = await _userRepository.GetByAny(x => x.Email == requestSignUp.Email);
 
             if (requestSignUp.Password != requestSignUp.ConfirmPassword)
@@ -83,18 +83,6 @@ namespace Exam.StockManagement.Application.Services
         public async Task<User> GetById(int Id)
         {
             var result = await _userRepository.GetByAny(x => x.Id == Id);
-            return result;
-        }
-
-        public async Task<User> GetByLogin(string email)
-        {
-            var result = await _userRepository.GetByAny(y => y.Email == email);
-            return result;
-        }
-
-        public async Task<User> GetByName(string name)
-        {
-            var result = await _userRepository.GetByAny(d => d.Name == name);
             return result;
         }
 

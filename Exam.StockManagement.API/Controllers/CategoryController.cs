@@ -9,9 +9,9 @@ namespace Exam.StockManagement.API.Controllers
     public class CategoryController : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> Create(int id)
+        public async Task<IActionResult> Create(string name)
         {
-            return Ok("Salom");
+            return Ok();
         }
 
         [HttpGet]

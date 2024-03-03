@@ -1,4 +1,4 @@
-﻿namespace Exam.StockManagement.Domain.Entities.DTOs
+﻿namespace Exam.StockManagement.Domain.Entities.DTOs.Auth
 {
     public class RequestLogin
     {

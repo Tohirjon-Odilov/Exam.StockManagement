@@ -1,12 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Exam.StockManagement.Domain.Entities.Models;
 
 namespace Exam.StockManagement.Application.Abstractions.IServices
 {
     public interface IStatsService
     {
+        public Task<string> Create();
+        public Task<List<Category>> GetAll();
+        public Task<string> Update();
+        public Task<string> Delete();
     }
 }

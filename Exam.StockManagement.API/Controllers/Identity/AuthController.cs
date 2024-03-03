@@ -1,5 +1,5 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IServices;
-using Exam.StockManagement.Domain.Entities.DTOs;
+using Exam.StockManagement.Domain.Entities.DTOs.Auth;
 using Exam.StockManagement.Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
