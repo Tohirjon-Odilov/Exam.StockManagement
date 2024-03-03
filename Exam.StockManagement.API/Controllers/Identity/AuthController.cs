@@ -1,4 +1,5 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IServices;
+using Exam.StockManagement.Domain;
 using Exam.StockManagement.Domain.Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,11 +17,16 @@ namespace Exam.StockManagement.API.Controllers.Identity
         }
 
         [HttpPost]
-        public async Task<ActionResult<ResponseLogin>> Login(RequestLogin model)
+        public async Task<IActionResult> Login(RequestLogin model)
         {
             var result = await _authService.GenerateToken(model);
 
             return Ok(result.Token);
+        }
+
+        public async Task<IActionResult> SignUp(RequestSignUp model)
+        {
+            return Ok(model);
         }
     }
 }

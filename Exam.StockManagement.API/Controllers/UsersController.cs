@@ -9,7 +9,6 @@ namespace Exam.StockManagement.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -20,6 +19,7 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<UserViewModel>>> GetAllUsers()
         {
             var result = await _userService.GetAll();
