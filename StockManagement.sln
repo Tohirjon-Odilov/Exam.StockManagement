@@ -2,13 +2,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exam.StockManagement.API", "FutureProjects.API\Exam.StockManagement.API.csproj", "{173DA75D-08ED-4357-BD0E-73C5BCE2B7C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exam.StockManagement.API", "Exam.StockManagement.API\Exam.StockManagement.API.csproj", "{173DA75D-08ED-4357-BD0E-73C5BCE2B7C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exam.StockManagement.Domain", "FutureProjects.Domain\Exam.StockManagement.Domain.csproj", "{97D075B6-8C80-473A-B5B4-CD42855994ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exam.StockManagement.Domain", "Exam.StockManagement.Domain\Exam.StockManagement.Domain.csproj", "{97D075B6-8C80-473A-B5B4-CD42855994ED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exam.StockManagement.Infrastructure", "FutureProjects.Infrastructure\Exam.StockManagement.Infrastructure.csproj", "{D9899C11-1867-42C1-9705-86ABB81B20FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exam.StockManagement.Infrastructure", "Exam.StockManagement.Infrastructure\Exam.StockManagement.Infrastructure.csproj", "{D9899C11-1867-42C1-9705-86ABB81B20FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exam.StockManagement.Application", "FutureProjects.Application\Exam.StockManagement.Application.csproj", "{02A15F0B-B512-4F81-8DCF-648DC3FAE16A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exam.StockManagement.Application", "Exam.StockManagement.Application\Exam.StockManagement.Application.csproj", "{02A15F0B-B512-4F81-8DCF-648DC3FAE16A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -17,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FutureProjects.Application\Exam.StockManagement.Application.csproj" />
-    <ProjectReference Include="..\FutureProjects.Domain\Exam.StockManagement.Domain.csproj" />
-    <ProjectReference Include="..\FutureProjects.Infrastructure\Exam.StockManagement.Infrastructure.csproj" />
+    <ProjectReference Include="..\Exam.StockManagement.Application\Exam.StockManagement.Application.csproj" />
+    <ProjectReference Include="..\Exam.StockManagement.Domain\Exam.StockManagement.Domain.csproj" />
+    <ProjectReference Include="..\Exam.StockManagement.Infrastructure\Exam.StockManagement.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

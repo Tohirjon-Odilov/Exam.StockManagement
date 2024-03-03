@@ -1,12 +1,14 @@
-﻿namespace Exam.StockManagement.Domain.Entities.Models
+﻿using Exam.StockManagement.Domain.Entities.Common;
+
+namespace Exam.StockManagement.Domain.Entities.Models
 {
-    public class User
+    public class User : Auditable
     {
-        public int Id { get; set; }
         public string? Name { get; set; }
         public string? Email { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
+        // salom
     }
 }

@@ -64,15 +64,5 @@ namespace Exam.StockManagement.Infrastructure.BaseRepositories
 
             return result.Entity;
         }
-
-        public async Task<T> GroupByName(Expression<Func<T, bool>> expression)
-        {
-            var group = await _dbSet.FirstOrDefaultAsync(expression);
-            if (group == null)
-            {
-                return null;
-            }
-            return group;
-        }
     }
 }

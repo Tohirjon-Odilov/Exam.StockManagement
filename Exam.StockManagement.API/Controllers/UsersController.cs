@@ -34,13 +34,5 @@ namespace Exam.StockManagement.API.Controllers
 
             return Ok(result);
         }
-
-        [HttpGet]
-        public async Task<IActionResult> GroupByName(string name)
-        {
-            var result = "";
-
-            return Ok(result);
-        }
     }
 }

@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FutureProjects.Domain\Exam.StockManagement.Domain.csproj" />
+    <ProjectReference Include="..\Exam.StockManagement.Domain\Exam.StockManagement.Domain.csproj" />
   </ItemGroup>
 
 </Project>
