@@ -19,7 +19,7 @@ namespace Exam.StockManagement.Application.Services
 
         public async Task<User> Create(RequestSignUp requestSignUp)
         {
-            User? hasLogin = await _userRepository.GetByAny(x => x.Login == requestSignUp.Login);
+            //User? hasLogin = await _userRepository.GetByAny(x => x.Login == requestSignUp.Email);
             var hasEmail = await _userRepository.GetByAny(x => x.Email == requestSignUp.Email);
 
             if (requestSignUp.Password != requestSignUp.ConfirmPassword)
@@ -27,7 +27,7 @@ namespace Exam.StockManagement.Application.Services
                 throw new PasswordNotMatchException();
             }
 
-            if (hasLogin != null && hasEmail != null)
+            if (hasEmail != null)
             {
                 throw new AlreadyExistException();
             }
@@ -36,7 +36,6 @@ namespace Exam.StockManagement.Application.Services
             {
                 Name = requestSignUp.Name,
                 Email = requestSignUp.Email,
-                Login = requestSignUp.Login,
                 Password = requestSignUp.Password,
                 Role = requestSignUp.Role
 
@@ -87,10 +86,10 @@ namespace Exam.StockManagement.Application.Services
             return result;
         }
 
-        public async Task<User> GetByLogin(string login)
+        public async Task<User> GetByLogin(string email)
         {
-            var reult = await _userRepository.GetByAny(y => y.Login == login);
-            return reult;
+            var result = await _userRepository.GetByAny(y => y.Email == email);
+            return result;
         }
 
         public async Task<User> GetByName(string name)
@@ -109,7 +108,6 @@ namespace Exam.StockManagement.Application.Services
                 {
                     Name = userDTO.Name,
                     Email = userDTO.Email,
-                    Login = userDTO.Login,
                     Password = userDTO.Password,
                     Role = userDTO.Role,
                 };

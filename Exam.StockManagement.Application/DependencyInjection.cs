@@ -11,6 +11,8 @@ namespace Exam.StockManagement.Application
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IEmailSenderService, EmailSenderService>();
+
 
             return services;
         }

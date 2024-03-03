@@ -52,7 +52,7 @@ namespace Exam.StockManagement.Infrastructure.BaseRepositories
             {
                 var result = await _dbSet.FirstOrDefaultAsync(expression);
                 return result;
-            } catch (Exception ex)
+            } catch
             {
                 throw new NotFoundException();
             }
