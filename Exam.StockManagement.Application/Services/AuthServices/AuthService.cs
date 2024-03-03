@@ -1,5 +1,7 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.DTOs;
+using Exam.StockManagement.Domain.Entities.Models;
+using Exam.StockManagement.Domain.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Globalization;
@@ -20,24 +22,43 @@ namespace Exam.StockManagement.Application.Services.AuthServices
             _userService = userService;
         }
 
-        public async Task<ResponseLogin> GenerateToken(RequestLogin user)
+        public async Task<string> CorrectEmail(RegisterLogin user)
         {
-            if (user == null)
+            var result = await _userService.GetByLogin(user.Email);
+            if (result.Code == user.Code)
             {
-                return new ResponseLogin()
-                {
-                    Token = "User Not Found"
-                };
+                return "Login successfully!";
+            }
+            throw new NotFoundException();
+        }
+
+        public async Task<ResponseLogin> GenerateToken(CheckEmail user, string path)
+        {
+            if (File.ReadAllText(path) != user.Code)
+            {
+                throw new PasswordNotMatchException();
             }
 
-            if (await UserExist(user))
+            File.WriteAllText(path, "");
+
+            if (user == null)
             {
-                var result = await _userService.GetByLogin(user.Login);
+                throw new NotFoundException();
+            }
+
+            var login = new RequestLogin()
+            {
+                Email = user.Email,
+            };
+
+            if (await UserExist(login))
+            {
+                var result = await _userService.GetByLogin(user.Email);
 
                 List<Claim> claims = new List<Claim>()
                 {
                     new Claim(ClaimTypes.Role, result.Role),
-                    new Claim("Login", user.Login),
+                    new Claim("Login", user.Email),
                     new Claim("UserID", result.Id.ToString()),
                     new Claim("CreatedDate", DateTime.UtcNow.ToString()),
                 };
@@ -83,18 +104,26 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
         }
 
-
         public async Task<bool> UserExist(RequestLogin user)
         {
+            if (user.Email == null)
+            {
+                throw new NotFoundException();
+            }
 
-            var result = await _userService.GetByLogin(user.Login);
+            var result = await _userService.GetByLogin(user.Email);
 
-            if (user.Login == result.Login && user.Password == result.Password)
+            if (result != null)
             {
                 return true;
             }
-
             return false;
+        }
+
+        public async Task<User> RegisterUser(RequestSignUp signUp)
+        {
+            var result = await _userService.Create(signUp);
+            return result;
         }
     }
 }

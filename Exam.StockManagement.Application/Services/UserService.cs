@@ -1,4 +1,4 @@
-﻿using Exam.StockManagement.Application.Abstractions;
+﻿using Exam.StockManagement.Application.Abstractions.IRepository;
 using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.DTOs;
 using Exam.StockManagement.Domain.Entities.Models;
@@ -6,7 +6,7 @@ using Exam.StockManagement.Domain.Entities.ViewModels;
 using Exam.StockManagement.Domain.Exceptions;
 using System.Linq.Expressions;
 
-namespace Exam.StockManagement.Application.Services.UserServices
+namespace Exam.StockManagement.Application.Services
 {
     public class UserService : IUserService
     {
@@ -17,23 +17,28 @@ namespace Exam.StockManagement.Application.Services.UserServices
             _userRepository = userRepository;
         }
 
-        public async Task<User> Create(UserDTO userDTO)
+        public async Task<User> Create(RequestSignUp requestSignUp)
         {
-            User? hasLogin = await _userRepository.GetByAny(x => x.Login == userDTO.Login);
-            var hasEmail = await _userRepository.GetByAny(x => x.Email == userDTO.Email);
+            //User? hasLogin = await _userRepository.GetByAny(x => x.Login == requestSignUp.Email);
+            var hasEmail = await _userRepository.GetByAny(x => x.Email == requestSignUp.Email);
 
-            if (hasLogin != null && hasEmail != null)
+            if (requestSignUp.Password != requestSignUp.ConfirmPassword)
+            {
+                throw new PasswordNotMatchException();
+            }
+
+            if (hasEmail != null)
             {
                 throw new AlreadyExistException();
             }
 
             User? user = new User()
             {
-                Name = userDTO.Name,
-                Email = userDTO.Email,
-                Login = userDTO.Login,
-                Password = userDTO.Password,
-                Role = userDTO.Role,
+                Name = requestSignUp.Name,
+                Email = requestSignUp.Email,
+                Password = requestSignUp.Password,
+                Role = requestSignUp.Role
+
             };
 
             User? result = await _userRepository.Create(user);
@@ -81,10 +86,10 @@ namespace Exam.StockManagement.Application.Services.UserServices
             return result;
         }
 
-        public async Task<User> GetByLogin(string login)
+        public async Task<User> GetByLogin(string email)
         {
-            var reult = await _userRepository.GetByAny(y => y.Login == login);
-            return reult;
+            var result = await _userRepository.GetByAny(y => y.Email == email);
+            return result;
         }
 
         public async Task<User> GetByName(string name)
@@ -103,7 +108,6 @@ namespace Exam.StockManagement.Application.Services.UserServices
                 {
                     Name = userDTO.Name,
                     Email = userDTO.Email,
-                    Login = userDTO.Login,
                     Password = userDTO.Password,
                     Role = userDTO.Role,
                 };
