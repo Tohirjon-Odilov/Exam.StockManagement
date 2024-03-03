@@ -1,6 +1,7 @@
-﻿using System.Linq.Expressions;
+﻿
+using System.Linq.Expressions;
 
-namespace Exam.StockManagement.Application.Abstractions
+namespace Exam.StockManagement.Application.Abstractions.IRepository
 {
     public interface IBaseRepository<T> where T : class
     {

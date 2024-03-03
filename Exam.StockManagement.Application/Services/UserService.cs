@@ -1,4 +1,4 @@
-﻿using Exam.StockManagement.Application.Abstractions;
+﻿using Exam.StockManagement.Application.Abstractions.IRepository;
 using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.DTOs;
 using Exam.StockManagement.Domain.Entities.Models;
@@ -6,7 +6,7 @@ using Exam.StockManagement.Domain.Entities.ViewModels;
 using Exam.StockManagement.Domain.Exceptions;
 using System.Linq.Expressions;
 
-namespace Exam.StockManagement.Application.Services.UserServices
+namespace Exam.StockManagement.Application.Services
 {
     public class UserService : IUserService
     {

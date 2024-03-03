@@ -1,6 +1,6 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IServices;
+using Exam.StockManagement.Application.Services;
 using Exam.StockManagement.Application.Services.AuthServices;
-using Exam.StockManagement.Application.Services.UserServices;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Exam.StockManagement.Application

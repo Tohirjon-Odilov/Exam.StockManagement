@@ -9,6 +9,6 @@ namespace Exam.StockManagement.Domain.Entities.Models
         public int ProductSum { get; set; }
         public int ProductCategorySum { get; set; }
 
-        
+        public Product Product { get; set; }
     }
 }
