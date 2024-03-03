@@ -1,4 +1,5 @@
-﻿using Exam.StockManagement.Application.Abstractions;
+﻿using Exam.StockManagement.Application.Abstractions.IRepository;
+using Exam.StockManagement.Domain.Exceptions;
 using Exam.StockManagement.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -53,7 +54,7 @@ namespace Exam.StockManagement.Infrastructure.BaseRepositories
                 return result;
             } catch (Exception ex)
             {
-                throw;
+                throw new NotFoundException();
             }
         }
 
