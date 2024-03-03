@@ -9,11 +9,18 @@ namespace Exam.StockManagement.API.Controllers.Identity
     [ApiController]
     public class AuthController : ControllerBase
     {
+        private readonly IEmailSenderService _emailSenderService;
         private readonly IAuthService _authService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AuthController(IAuthService authService)
+
+        public AuthController(IAuthService authService,
+            IEmailSenderService emailSenderService,
+            IWebHostEnvironment webHostEnvironment)
         {
+            _emailSenderService = emailSenderService;
             _authService = authService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpPost]
@@ -29,16 +36,20 @@ namespace Exam.StockManagement.API.Controllers.Identity
             var result = await _authService.UserExist(model);
             if (result)
             {
+                string path = Path.Combine(_webHostEnvironment.WebRootPath, "code.txt");
+
+                await _emailSenderService.SendEmailAsync(model.Email, path);
                 return Ok(result);
             }
             throw new NotFoundException();
         }
 
         [HttpPost]
-        public async Task<IActionResult> AcceptUser(RequestLogin model)
+        public async Task<IActionResult> AcceptUser(CheckEmail model)
         {
-            var result = await _authService.GenerateToken(model);
-            return Ok(result);
+            string path = Path.Combine(_webHostEnvironment.WebRootPath, "code.txt");
+            var result = await _authService.GenerateToken(model, path);
+            return Ok(result.Token);
         }
     }
 }
