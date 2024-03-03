@@ -10,6 +10,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exam.StockManagement.Infras
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exam.StockManagement.Application", "Exam.StockManagement.Application\Exam.StockManagement.Application.csproj", "{02A15F0B-B512-4F81-8DCF-648DC3FAE16A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4B80BB27-D1F5-4080-976D-2DEB9E8DD51E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
