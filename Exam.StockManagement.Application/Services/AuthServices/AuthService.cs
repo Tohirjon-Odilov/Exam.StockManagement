@@ -1,4 +1,6 @@
-﻿using Exam.StockManagement.Application.Abstractions.IServices;
+﻿// Ignore Spelling: conf
+
+using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.DTOs.Auth;
 using Exam.StockManagement.Domain.Entities.Models;
 using Exam.StockManagement.Domain.Exceptions;
@@ -14,7 +16,7 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 {
     public class AuthService : IAuthService
     {
-        private readonly IConfiguration _conf;
+        private readonly IConfiguration? _conf;
         private readonly IUserService _userService;
 
         public AuthService(IConfiguration conf, IUserService userService)
@@ -25,7 +27,7 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
         public async Task<string> CorrectEmail(RegisterLogin user)
         {
-            var result = await _userService.GetByEmail(user.Email);
+            var result = await _userService.GetByEmail(user.Email!);
             if (result.Code == user.Code)
             {
                 return "Login successfully!";
@@ -33,26 +35,21 @@ namespace Exam.StockManagement.Application.Services.AuthServices
             throw new NotFoundException();
         }
 
-        public async Task<ResponseLogin> GenerateToken(CheckEmail user, string path)
+        public async Task<ResponseLogin> GenerateToken(CheckEmail model, string path)
         {
             var login = new RequestLogin()
             {
-                Email = user.Email,
+                Email = model.Email,
             };
 
-            if (File.ReadAllText(path) != user.Code && await UserExist(login))
+            if (File.ReadAllText(path) != model.Code && await UserExist(login))
             {
                 throw new PasswordNotMatchException();
             }
 
             File.WriteAllText(path, "");
 
-            if (user is null)
-            {
-                throw new NotFoundException();
-            }
-
-            var result = await _userService.GetByEmail(user.Email);
+            var result = await _userService.GetByEmail(model.Email);
 
             IEnumerable<int> permissionsId = new List<int>();
             if (result.Role == "Admin")
@@ -65,8 +62,8 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
             List<Claim> claims = new List<Claim>()
             {
-                new Claim(ClaimTypes.Role, result.Role),
-                new Claim("Login", user.Email),
+                new Claim(ClaimTypes.Role, result.Role!),
+                new Claim("Login", model.Email),
                 new Claim("UserID", result.Id.ToString()),
                 new Claim("CreatedDate", DateTime.UtcNow.ToString()),
                 new Claim("permissions",permmisionJson)
@@ -77,8 +74,9 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
         public async Task<ResponseLogin> GenerateToken(IEnumerable<Claim> additionalClaims)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_conf["JWT:Secret"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_conf["JWT:Secret"]!));
+
+            SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var exDate = Convert.ToInt32(_conf["JWT:ExpireDate"] ?? "10");
 
