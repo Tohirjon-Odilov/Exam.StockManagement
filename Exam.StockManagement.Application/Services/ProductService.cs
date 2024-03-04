@@ -45,6 +45,15 @@ namespace Exam.StockManagement.Application.Services
             var result = await productRepository.GetAll();
             return result.ToList();
         }
+        public async Task<List<Product>> GetByCategory(string categoryName)
+        {
+            ArgumentNullException.ThrowIfNull(productRepository);
+            var datas = await productRepository.GetAll();
+            var result = datas.Where(x => x.Category.CategoryName == categoryName);
+
+
+            return result.ToList();
+        }
 
         public async Task<string> Update(ProductDTO product)
         {
@@ -77,9 +86,10 @@ namespace Exam.StockManagement.Application.Services
 
             var result = await productRepository.Delete(x => x.Id == Id);
 
+
             ArgumentNullException.ThrowIfNull(result);
 
-            return "Qo'shildi";
+            return "Muvaffaqiyatli o'chirildi!";
         }
     }
 }

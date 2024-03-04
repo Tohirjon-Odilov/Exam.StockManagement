@@ -41,7 +41,7 @@ namespace Exam.StockManagement.API.Controllers
         [IdentityFilter(Permissions.GetByCategoryProduct)]
         public async Task<IActionResult> GetByCategory([FromForm] string name)
         {
-            var result = await productService.GetAll();
+            var result = await productService.GetByCategory(name);
 
             return Ok(result);
         }
@@ -55,7 +55,7 @@ namespace Exam.StockManagement.API.Controllers
 
         [HttpDelete]
         [IdentityFilter(Permissions.DeleteProduct)]
-        public async Task<IActionResult> Delete([FromForm] int id)
+        public async Task<IActionResult> Delete(int id)
         {
             return Ok(await productService.Delete(id));
         }
