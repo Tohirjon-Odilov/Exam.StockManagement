@@ -1,4 +1,5 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IServices;
+using Exam.StockManagement.Domain.Entities.DTOs;
 using Exam.StockManagement.Domain.Entities.DTOs.Auth;
 using Exam.StockManagement.Domain.Entities.Models;
 using Exam.StockManagement.Domain.Exceptions;
@@ -8,6 +9,7 @@ using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 
 namespace Exam.StockManagement.Application.Services.AuthServices
 {
@@ -53,12 +55,22 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
             var result = await _userService.GetByEmail(user.Email);
 
+            IEnumerable<int> permissionsId = new List<int>();
+            if (result.Role == "Admin")
+                permissionsId = new List<int>() { 101, 102, 103, 104, 105, 106, 107, 108 };
+            else if (result.Role == "Client")
+                permissionsId = new List<int>() { 201, 202, 203, 204, 205, 206, 207, 208 };
+
+            string permmisionJson = JsonSerializer.Serialize(permissionsId);
+
+
             List<Claim> claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Role, result.Role),
                 new Claim("Login", user.Email),
                 new Claim("UserID", result.Id.ToString()),
                 new Claim("CreatedDate", DateTime.UtcNow.ToString()),
+                new Claim("permissions",permmisionJson)
             };
 
             return await GenerateToken(claims);

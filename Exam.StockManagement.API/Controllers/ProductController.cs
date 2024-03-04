@@ -32,6 +32,14 @@ namespace Exam.StockManagement.API.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetByCategory(string name)
+        {
+            var result = await productService.GetAll();
+
+            return Ok(result);
+        }
+
         [HttpPut]
         public async Task<IActionResult> Update(ProductDTO product)
         {
