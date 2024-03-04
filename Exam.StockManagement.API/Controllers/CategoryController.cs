@@ -3,6 +3,7 @@ using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace Exam.StockManagement.API.Controllers
 {
@@ -20,7 +21,7 @@ namespace Exam.StockManagement.API.Controllers
 
         [HttpPost]
         [IdentityFilter(Permissions.CreateCategory)]
-        public async Task<IActionResult> Create([FromForm] string name)
+        public async Task<IActionResult> Create([FromForm, Required] string name)
         {
             var result = await _categoryService.Create(name);
 
@@ -38,7 +39,7 @@ namespace Exam.StockManagement.API.Controllers
 
         [HttpPut]
         [IdentityFilter(Permissions.UpdateCategory)]
-        public async Task<IActionResult> Update([FromForm] int id, string name)
+        public async Task<IActionResult> Update([FromForm, Required] int id, [Required] string name)
         {
             var result = await _categoryService.Update(id, name);
 

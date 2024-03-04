@@ -27,27 +27,28 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
         public async Task<ResponseLogin> GenerateToken(CheckEmail model, string path)
         {
-            var login = new RequestLogin()
+            try
             {
-                Email = model.Email,
-            };
+                var login = new RequestLogin()
+                {
+                    Email = model.Email,
+                };
+                if (File.ReadAllText(path) != model.Code && await UserExist(login))
+                {
+                    return new ResponseLogin { Token = "503" };
+                }
 
-            if (File.ReadAllText(path) != model.Code && await UserExist(login))
-            {
-                return new ResponseLogin { Token = "503" };
-            }
+                var result = await _userService.GetByEmail(model.Email);
 
-            var result = await _userService.GetByEmail(model.Email);
+                IEnumerable<int> permissionsId = new List<int>();
+                if (result.Role == "Admin")
+                    permissionsId = new List<int>() { 100, 101, 102, 103, 104, 105, 106, 107, 108, 200, 201, 202, 203, 204, 205, 206, 207, 208 };
+                else if (result.Role == "Client")
+                    permissionsId = new List<int>() { 200, 201, 202, 203, 204, 205, 206, 207, 208 };
 
-            IEnumerable<int> permissionsId = new List<int>();
-            if (result.Role == "Admin")
-                permissionsId = new List<int>() { 101, 102, 103, 104, 105, 106, 107, 108, 201, 202, 203, 204, 205, 206, 207, 208 };
-            else if (result.Role == "Client")
-                permissionsId = new List<int>() { 201, 202, 203, 204, 205, 206, 207, 208 };
+                string permmisionJson = JsonSerializer.Serialize(permissionsId);
 
-            string permmisionJson = JsonSerializer.Serialize(permissionsId);
-
-            List<Claim> claims = new List<Claim>()
+                List<Claim> claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Role, result.Role!),
                 new Claim("Login", model.Email),
@@ -56,9 +57,13 @@ namespace Exam.StockManagement.Application.Services.AuthServices
                 new Claim("permissions",permmisionJson)
             };
 
-            File.Delete(path);
+                File.Delete(path);
 
-            return await GenerateToken(claims);
+                return await GenerateToken(claims);
+            } catch (NotFoundException ex)
+            {
+                return new ResponseLogin { Token = "404" };
+            }
         }
 
         public async Task<ResponseLogin> GenerateToken(IEnumerable<Claim> additionalClaims)
@@ -104,7 +109,7 @@ namespace Exam.StockManagement.Application.Services.AuthServices
             var result = await _userService.GetByEmail(user.Email);
             var hash = new HashingPassword();
 
-            if(result != null && hash.VerifyPassword(
+            if (result != null && hash.VerifyPassword(
                 user.Password, result.Password, result.Salt))
             {
                 return true;

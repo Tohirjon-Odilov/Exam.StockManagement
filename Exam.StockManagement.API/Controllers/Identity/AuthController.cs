@@ -65,8 +65,12 @@ namespace Exam.StockManagement.API.Controllers.Identity
             if (result.Token == "503")
             {
                 return BadRequest("User'ga yuborilgan kod bilan to'g'ri kelmadi.");
+            } else if (result.Token == "404")
+            {
+                return StatusCode(404, "User topilmadi.");
             }
-            return StatusCode(201,result.Token);
+
+            return StatusCode(201, result.Token);
         }
     }
 }

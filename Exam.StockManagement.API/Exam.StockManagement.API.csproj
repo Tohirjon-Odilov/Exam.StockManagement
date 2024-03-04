@@ -22,4 +22,8 @@
     <ProjectReference Include="..\Exam.StockManagement.Infrastructure\Exam.StockManagement.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Users\" />
+  </ItemGroup>
+
 </Project>
