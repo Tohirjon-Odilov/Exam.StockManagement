@@ -18,7 +18,6 @@ namespace Exam.StockManagement.Application.Services
         {
             ArgumentNullException.ThrowIfNull(product);
 
-
             var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", Guid.NewGuid() + "_" + product.ProductPicture.FileName);
 
             using (var stream = new FileStream(path, FileMode.Create))

@@ -1,6 +1,5 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.DTOs;
-using Exam.StockManagement.Domain.Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exam.StockManagement.API.Controllers
@@ -20,7 +19,7 @@ namespace Exam.StockManagement.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] ProductDTO product)
         {
-            var result = await productService.GetAllQuantity(product);
+            await productService.Create(product);
 
             return Ok("Ma'lumot saqlandi");
         }
@@ -34,7 +33,7 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(Product product)
+        public async Task<IActionResult> Update(ProductDTO product)
         {
             return Ok(await productService.Update(product));
         }

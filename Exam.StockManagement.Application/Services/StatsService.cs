@@ -1,6 +1,5 @@
 using Exam.StockManagement.Application.Abstractions.IRepository;
 using Exam.StockManagement.Application.Abstractions.IServices;
-using Exam.StockManagement.Domain.Entities.Models;
 
 namespace Exam.StockManagement.Application.Services
 {
@@ -13,24 +12,31 @@ namespace Exam.StockManagement.Application.Services
             this.statsRepository = statsRepository;
         }
 
-        public Task<string> GetAllPrice()
+        public async Task<int> GetSum()
         {
-            throw new NotImplementedException();
+            var result = await statsRepository.GetAll();
+
+            return result.Sum(x => x.ProductPrice);
         }
 
-        public Task<Product> GetAllQuantity()
+        public async Task<int> GetQuantity()
         {
-            throw new NotImplementedException();
+            var result = await statsRepository.GetAll();
+            return result.Count();
         }
 
-        public Task<string> GetByCategoryPrice(int category_id)
+        public async Task<int> GetByCategorySum(int category_id)
         {
-            throw new NotImplementedException();
+            var datas = await statsRepository.GetAll();
+            var result = datas.Where(x => x.CategoryId == category_id);
+            return result.Sum(x => x.ProductPrice);
         }
 
-        public Task<List<Product>> GetByCategoryQuantity(int category_id)
+        public async Task<int> GetByCategoryQuantity(int category_id)
         {
-            throw new NotImplementedException();
+            var datas = await statsRepository.GetAll();
+            var result = datas.Where(x => x.CategoryId == category_id);
+            return result.Count();
         }
     }
 }

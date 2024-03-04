@@ -1,33 +1,43 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Exam.StockManagement.Application.Abstractions.IServices;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exam.StockManagement.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class StatsController : ControllerBase
     {
+        private readonly IStatsService _service;
+
+        public StatsController(IStatsService service)
+        {
+            _service = service;
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetQuantity()
         {
-            return Ok();
+            var result = await _service.GetQuantity();
+            return Ok(result);
         }
         [HttpGet]
-        public async Task<IActionResult> GetCategoryQuantity()
+        public async Task<IActionResult> GetByCategoryQuantity(int category_id)
         {
-            return Ok();
+            var result = await _service.GetByCategoryQuantity(category_id);
+            return Ok(result);
         }
         [HttpGet]
         public async Task<IActionResult> GetSum()
         {
-            return Ok();
+            var result = await _service.GetSum();
+            return Ok(result);
         }
         [HttpGet]
-        public async Task<IActionResult> GetCategorySum()
+        public async Task<IActionResult> GetByCategorySum(int category_id)
         {
-            return Ok();
+            var result = await _service.GetByCategorySum(category_id);
+            return Ok(result);
         }
     }
 }
