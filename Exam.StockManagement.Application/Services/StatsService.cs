@@ -1,3 +1,4 @@
+using Exam.StockManagement.Application.Abstractions.IRepository;
 using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.Models;
 
@@ -5,22 +6,29 @@ namespace Exam.StockManagement.Application.Services
 {
     public class StatsService : IStatsService
     {
-        public Task<string> Create()
+        private readonly IStatsRepository statsRepository;
+
+        public StatsService(IStatsRepository statsRepository)
+        {
+            this.statsRepository = statsRepository;
+        }
+
+        public Task<string> GetAllPrice()
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> Delete()
+        public Task<Product> GetAllQuantity()
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Category>> GetAll()
+        public Task<string> GetByCategoryPrice(int category_id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> Update()
+        public Task<List<Product>> GetByCategoryQuantity(int category_id)
         {
             throw new NotImplementedException();
         }

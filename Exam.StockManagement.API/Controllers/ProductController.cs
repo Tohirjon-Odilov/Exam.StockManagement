@@ -20,7 +20,7 @@ namespace Exam.StockManagement.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] ProductDTO product)
         {
-            var result = await productService.Create(product);
+            var result = await productService.GetAllQuantity(product);
 
             return Ok("Ma'lumot saqlandi");
         }

@@ -7,7 +7,7 @@ namespace Exam.StockManagement.Application.Abstractions.IServices
     {
         public Task<Product> Create(ProductDTO product);
         public Task<List<Product>> GetAll();
-        public Task<string> Update(Product product);
+        public Task<string> Update(ProductDTO product);
         public Task<string> Delete(int Id);
     }
 }

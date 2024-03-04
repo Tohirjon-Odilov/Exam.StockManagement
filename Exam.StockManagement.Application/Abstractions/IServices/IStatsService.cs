@@ -4,9 +4,9 @@ namespace Exam.StockManagement.Application.Abstractions.IServices
 {
     public interface IStatsService
     {
-        public Task<string> Create();
-        public Task<List<Category>> GetAll();
-        public Task<string> Update();
-        public Task<string> Delete();
+        public Task<Product> GetAllQuantity();
+        public Task<List<Product>> GetByCategoryQuantity(int category_id);
+        public Task<string> GetAllPrice();
+        public Task<string> GetByCategoryPrice(int category_id);
     }
 }

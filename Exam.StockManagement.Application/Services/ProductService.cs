@@ -47,9 +47,16 @@ namespace Exam.StockManagement.Application.Services
             return result.ToList();
         }
 
-        public async Task<string> Update(Product product)
+        public async Task<string> Update(ProductDTO product)
         {
             ArgumentNullException.ThrowIfNull(productRepository);
+
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", Guid.NewGuid() + "_" + product.ProductPicture.FileName);
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await product.ProductPicture.CopyToAsync(stream);
+            }
 
             var entity = new Product()
             {
@@ -57,7 +64,7 @@ namespace Exam.StockManagement.Application.Services
                 ProductDescription = product.ProductDescription,
                 ProductName = product.ProductName,
                 ProductPrice = product.ProductPrice,
-                ProductPicture = product.ProductPicture
+                ProductPicture = path,
             };
 
             await productRepository.Update(entity);
