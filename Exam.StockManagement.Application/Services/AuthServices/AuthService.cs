@@ -59,7 +59,6 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
             string permmisionJson = JsonSerializer.Serialize(permissionsId);
 
-
             List<Claim> claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Role, result.Role!),

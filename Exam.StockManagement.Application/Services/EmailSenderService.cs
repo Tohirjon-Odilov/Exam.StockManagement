@@ -7,7 +7,7 @@ namespace Exam.StockManagement.Application.Services
 {
     public class EmailSenderService : IEmailSenderService
     {
-        private IConfiguration _config;
+        private readonly IConfiguration _config;
 
         public EmailSenderService(IConfiguration config)
         {
@@ -39,7 +39,6 @@ namespace Exam.StockManagement.Application.Services
 
             await File.WriteAllTextAsync(path, code);
 
-            //smtpClient.UseDefaultCredentials = true;
             await smtpClient.SendMailAsync(mailMessage);
             return code;
         }
