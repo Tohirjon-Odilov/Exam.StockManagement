@@ -1,11 +1,13 @@
+using Microsoft.AspNetCore.Http;
+
 namespace Exam.StockManagement.Domain.Entities.DTOs
 {
     public class ProductDTO
     {
-        public string ProductName { get; set; }
-        public int CategoryId { get; set; }
-        public int ProductPrice { get; set; }
-        public string ProductDescription { get; set; }
-        public string ProductPicture { get; set; }
+        public required string ProductName { get; set; }
+        public required int CategoryId { get; set; }
+        public required int ProductPrice { get; set; }
+        public string? ProductDescription { get; set; }
+        public required IFormFile ProductPicture { get; set; }
     }
 }

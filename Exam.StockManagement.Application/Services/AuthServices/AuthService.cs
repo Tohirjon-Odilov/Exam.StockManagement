@@ -34,7 +34,12 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
         public async Task<ResponseLogin> GenerateToken(CheckEmail user, string path)
         {
-            if (File.ReadAllText(path) != user.Code)
+            var login = new RequestLogin()
+            {
+                Email = user.Email,
+            };
+
+            if (File.ReadAllText(path) != user.Code && await UserExist(login))
             {
                 throw new PasswordNotMatchException();
             }
@@ -46,30 +51,17 @@ namespace Exam.StockManagement.Application.Services.AuthServices
                 throw new NotFoundException();
             }
 
-            var login = new RequestLogin()
+            var result = await _userService.GetByEmail(user.Email);
+
+            List<Claim> claims = new List<Claim>()
             {
-                Email = user.Email,
+                new Claim(ClaimTypes.Role, result.Role),
+                new Claim("Login", user.Email),
+                new Claim("UserID", result.Id.ToString()),
+                new Claim("CreatedDate", DateTime.UtcNow.ToString()),
             };
 
-            if (await UserExist(login))
-            {
-                var result = await _userService.GetByEmail(user.Email);
-
-                List<Claim> claims = new List<Claim>()
-                {
-                    new Claim(ClaimTypes.Role, result.Role),
-                    new Claim("Login", user.Email),
-                    new Claim("UserID", result.Id.ToString()),
-                    new Claim("CreatedDate", DateTime.UtcNow.ToString()),
-                };
-
-                return await GenerateToken(claims);
-            }
-
-            return new ResponseLogin()
-            {
-                Token = "Unauthorize"
-            };
+            return await GenerateToken(claims);
         }
 
         public async Task<ResponseLogin> GenerateToken(IEnumerable<Claim> additionalClaims)

@@ -1,4 +1,5 @@
 using Exam.StockManagement.Domain.Entities.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Exam.StockManagement.Domain.Entities.Models
 {
@@ -10,6 +11,7 @@ namespace Exam.StockManagement.Domain.Entities.Models
         public string ProductDescription { get; set; }
         public string ProductPicture { get; set; }
 
+        [NotMapped]
         public Category Category { get; set; }
     }
 }

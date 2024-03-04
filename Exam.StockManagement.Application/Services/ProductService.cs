@@ -14,9 +14,17 @@ namespace Exam.StockManagement.Application.Services
             this.productRepository = productRepository;
         }
 
-        public Task<Product> Create(ProductDTO product)
+        public async Task<Product> Create(ProductDTO product)
         {
             ArgumentNullException.ThrowIfNull(product);
+
+
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", Guid.NewGuid() + "_" + product.ProductPicture.FileName);
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await product.ProductPicture.CopyToAsync(stream);
+            }
 
             var entity = new Product()
             {
@@ -24,10 +32,10 @@ namespace Exam.StockManagement.Application.Services
                 ProductDescription = product.ProductDescription,
                 ProductName = product.ProductName,
                 ProductPrice = product.ProductPrice,
-                ProductPicture = product.ProductPicture
+                ProductPicture = path,
             };
 
-            var result = productRepository.Create(entity);
+            var result = await productRepository.Create(entity);
 
             return result;
         }
