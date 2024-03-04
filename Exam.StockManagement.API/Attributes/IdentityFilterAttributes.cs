@@ -10,7 +10,7 @@ namespace Exam.StockManagement.API.Attributes
     public class IdentityFilterAttribute : Attribute, IAuthorizationFilter
     {
         private readonly int _permissionId;
-        public IdentityFilterAttribute(Persmissions permissions)
+        public IdentityFilterAttribute(Permissions permissions)
         {
             _permissionId = (int)permissions;
         }

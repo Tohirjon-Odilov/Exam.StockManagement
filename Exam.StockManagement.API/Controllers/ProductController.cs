@@ -1,12 +1,15 @@
-﻿using Exam.StockManagement.Application.Abstractions.IServices;
+﻿using Exam.StockManagement.API.Attributes;
+using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.DTOs;
+using Exam.StockManagement.Domain.Entities.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exam.StockManagement.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService productService;
@@ -17,6 +20,7 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpPost]
+        [IdentityFilter(Permissions.CreateProduct)]
         public async Task<IActionResult> Create([FromForm] ProductDTO product)
         {
             await productService.Create(product);
@@ -25,6 +29,7 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpGet]
+        [IdentityFilter(Permissions.GetAllProduct)]
         public async Task<IActionResult> GetAll()
         {
             var result = await productService.GetAll();
@@ -33,7 +38,8 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetByCategory(string name)
+        [IdentityFilter(Permissions.GetByCategoryProduct)]
+        public async Task<IActionResult> GetByCategory([FromForm] string name)
         {
             var result = await productService.GetAll();
 
@@ -41,13 +47,15 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(ProductDTO product)
+        [IdentityFilter(Permissions.UpdateProduct)]
+        public async Task<IActionResult> Update([FromForm] ProductDTO product)
         {
             return Ok(await productService.Update(product));
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+        [IdentityFilter(Permissions.DeleteProduct)]
+        public async Task<IActionResult> Delete([FromForm] int id)
         {
             return Ok(await productService.Delete(id));
         }

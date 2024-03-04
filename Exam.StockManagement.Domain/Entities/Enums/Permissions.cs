@@ -1,6 +1,6 @@
 namespace Exam.StockManagement.Domain.Entities.Enums
 {
-    public enum Persmissions
+    public enum Permissions
     {
         CreateProduct = 100,
         GetAllUser,

@@ -1,5 +1,4 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IServices;
-using Exam.StockManagement.Domain.Entities.DTOs;
 using Exam.StockManagement.Domain.Entities.DTOs.Auth;
 using Exam.StockManagement.Domain.Entities.Models;
 using Exam.StockManagement.Domain.Exceptions;
@@ -48,7 +47,7 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
             File.WriteAllText(path, "");
 
-            if (user == null)
+            if (user is null)
             {
                 throw new NotFoundException();
             }
@@ -57,7 +56,7 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
             IEnumerable<int> permissionsId = new List<int>();
             if (result.Role == "Admin")
-                permissionsId = new List<int>() { 101, 102, 103, 104, 105, 106, 107, 108 };
+                permissionsId = new List<int>() { 101, 102, 103, 104, 105, 106, 107, 108, 201, 202, 203, 204, 205, 206, 207, 208 };
             else if (result.Role == "Client")
                 permissionsId = new List<int>() { 201, 202, 203, 204, 205, 206, 207, 208 };
 

@@ -1,4 +1,6 @@
-﻿using Exam.StockManagement.Application.Abstractions.IServices;
+﻿using Exam.StockManagement.API.Attributes;
+using Exam.StockManagement.Application.Abstractions.IServices;
+using Exam.StockManagement.Domain.Entities.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +19,8 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(string name)
+        [IdentityFilter(Permissions.CreateCategory)]
+        public async Task<IActionResult> Create([FromForm] string name)
         {
             var result = await _categoryService.Create(name);
 
@@ -25,6 +28,7 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpGet]
+        [IdentityFilter(Permissions.GetAllCategory)]
         public async Task<IActionResult> GetAll()
         {
             var result = await _categoryService.GetAll();
@@ -33,7 +37,8 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(int id, string name)
+        [IdentityFilter(Permissions.UpdateCategory)]
+        public async Task<IActionResult> Update([FromForm] int id, string name)
         {
             var result = await _categoryService.Update(id, name);
 
@@ -41,7 +46,8 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+        [IdentityFilter(Permissions.DeleteCategory)]
+        public async Task<IActionResult> Delete([FromForm] int id)
         {
             var restult = await _categoryService.Delete(id);
             return Ok("Deleted");

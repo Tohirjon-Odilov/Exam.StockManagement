@@ -24,14 +24,14 @@ namespace Exam.StockManagement.API.Controllers.Identity
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignUp(RequestSignUp model)
+        public async Task<IActionResult> SignUp([FromForm] RequestSignUp model)
         {
             var result = await _authService.RegisterUser(model);
             return Ok(result);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(RequestLogin model)
+        public async Task<IActionResult> Login([FromForm] RequestLogin model)
         {
             var result = await _authService.UserExist(model);
             if (result)
@@ -45,7 +45,7 @@ namespace Exam.StockManagement.API.Controllers.Identity
         }
 
         [HttpPost]
-        public async Task<IActionResult> AcceptUser(CheckEmail model)
+        public async Task<IActionResult> AcceptUser([FromForm] CheckEmail model)
         {
             string path = Path.Combine(_webHostEnvironment.WebRootPath, "code.txt");
             var result = await _authService.GenerateToken(model, path);
