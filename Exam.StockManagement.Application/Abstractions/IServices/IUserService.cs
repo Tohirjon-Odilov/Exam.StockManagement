@@ -8,7 +8,7 @@ namespace Exam.StockManagement.Application.Abstractions.IServices
 {
     public interface IUserService
     {
-        public Task<User> Create(RequestSignUp signUp);
+        public Task<User> Create(RequestSignUp requestSignUp);
         public Task<User> GetByEmail(string email);
         public Task<IEnumerable<UserViewModel>> GetAll();
         public Task<bool> Delete(Expression<Func<User, bool>> expression);

@@ -4,7 +4,6 @@ using Exam.StockManagement.Domain.Entities.DTOs;
 using Exam.StockManagement.Domain.Entities.DTOs.Auth;
 using Exam.StockManagement.Domain.Entities.Models;
 using Exam.StockManagement.Domain.Entities.ViewModels;
-using Exam.StockManagement.Domain.Exceptions;
 using System.Linq.Expressions;
 
 namespace Exam.StockManagement.Application.Services
@@ -24,24 +23,26 @@ namespace Exam.StockManagement.Application.Services
 
             if (requestSignUp.Password != requestSignUp.ConfirmPassword)
             {
-                throw new PasswordNotMatchException();
+                return new User { Email = "501" };
             }
 
             if (hasEmail != null)
             {
-                throw new AlreadyExistException();
+                return new User { Email = "502" };
             }
+
+            var hash = new HashingPassword();
 
             User? user = new User()
             {
                 Name = requestSignUp.Name,
                 Email = requestSignUp.Email,
-                Password = requestSignUp.Password,
+                Password = hash.HashPassword(requestSignUp.Password, out byte[]? salt),
+                Salt = Convert.ToHexString(salt),
                 Role = requestSignUp.Role
-
             };
 
-            User? result = await _userRepository.Create(user);
+            var result = await _userRepository.Create(user);
 
             return result;
         }
@@ -104,7 +105,6 @@ namespace Exam.StockManagement.Application.Services
                 return result;
             }
             return new User();
-
         }
     }
 }

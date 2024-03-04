@@ -22,9 +22,6 @@ namespace Exam.StockManagement.Infrastructure
             services.AddScoped<IStatsRepository, StatsRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
 
-
-            //services.AddScoped<IUserRepository, UserRepository>();
-            //services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
             return services;
         }
     }

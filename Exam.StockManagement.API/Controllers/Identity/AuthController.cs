@@ -1,6 +1,5 @@
 ﻿using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.DTOs.Auth;
-using Exam.StockManagement.Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exam.StockManagement.API.Controllers.Identity
@@ -27,7 +26,16 @@ namespace Exam.StockManagement.API.Controllers.Identity
         public async Task<IActionResult> SignUp([FromForm] RequestSignUp model)
         {
             var result = await _authService.RegisterUser(model);
-            return Ok(result);
+
+            if (result.Email == "501")
+            {
+                return BadRequest("Parol bir-biriga mos kelmadi.");
+            } else if (result.Email == "502")
+            {
+                return BadRequest("Email oldindan band qilingan.");
+            }
+
+            return Ok("User muvaffaqiyatli ro'yxatdan o'tkazildi. Iltimos login qismidan qayta kiriting.");
         }
 
         [HttpPost]
@@ -36,20 +44,29 @@ namespace Exam.StockManagement.API.Controllers.Identity
             var result = await _authService.UserExist(model);
             if (result)
             {
-                string path = Path.Combine(_webHostEnvironment.WebRootPath, "code.txt");
+                // emailga qarab fayl ochadi.
+                // coddan foydalanib bo'lganidan so'ng avtomatik o'chib ketadi.
+                string path = Path.Combine(_webHostEnvironment.WebRootPath, "Users",
+                    $"{model.Email.Remove(model.Email.IndexOf("@"))}.txt");
 
                 await _emailSenderService.SendEmailAsync(model.Email, path);
-                return Ok(result);
+                return Ok("User Emailiga kod yuborildi. Iltimos tasdiqlash qismidan kodni kiriting.");
             }
-            throw new NotFoundException();
+            return NotFound("Email topilmadi.");
         }
 
         [HttpPost]
         public async Task<IActionResult> AcceptUser([FromForm] CheckEmail model)
         {
-            string path = Path.Combine(_webHostEnvironment.WebRootPath, "code.txt");
+            string path = Path.Combine(_webHostEnvironment.WebRootPath, "Users",
+                $"{model.Email.Remove(model.Email.IndexOf("@"))}.txt");
+
             var result = await _authService.GenerateToken(model, path);
-            return Ok(result.Token);
+            if (result.Token == "503")
+            {
+                return BadRequest("User'ga yuborilgan kod bilan to'g'ri kelmadi.");
+            }
+            return StatusCode(201,result.Token);
         }
     }
 }

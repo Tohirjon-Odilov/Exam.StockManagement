@@ -1,5 +1,6 @@
 ﻿using Exam.StockManagement.Domain.Entities.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace Exam.StockManagement.Infrastructure.Persistance
 {
@@ -15,5 +16,12 @@ namespace Exam.StockManagement.Infrastructure.Persistance
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
     }
 }

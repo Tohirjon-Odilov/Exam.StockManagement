@@ -25,16 +25,6 @@ namespace Exam.StockManagement.Application.Services.AuthServices
             _userService = userService;
         }
 
-        public async Task<string> CorrectEmail(RegisterLogin user)
-        {
-            var result = await _userService.GetByEmail(user.Email!);
-            if (result.Code == user.Code)
-            {
-                return "Login successfully!";
-            }
-            throw new NotFoundException();
-        }
-
         public async Task<ResponseLogin> GenerateToken(CheckEmail model, string path)
         {
             var login = new RequestLogin()
@@ -44,10 +34,8 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
             if (File.ReadAllText(path) != model.Code && await UserExist(login))
             {
-                throw new PasswordNotMatchException();
+                return new ResponseLogin { Token = "503" };
             }
-
-            File.WriteAllText(path, "");
 
             var result = await _userService.GetByEmail(model.Email);
 
@@ -67,6 +55,8 @@ namespace Exam.StockManagement.Application.Services.AuthServices
                 new Claim("CreatedDate", DateTime.UtcNow.ToString()),
                 new Claim("permissions",permmisionJson)
             };
+
+            File.Delete(path);
 
             return await GenerateToken(claims);
         }
@@ -106,14 +96,16 @@ namespace Exam.StockManagement.Application.Services.AuthServices
 
         public async Task<bool> UserExist(RequestLogin user)
         {
-            if (user.Email == null)
+            if (user.Email == null || user.Password == null)
             {
                 throw new NotFoundException();
             }
 
             var result = await _userService.GetByEmail(user.Email);
+            var hash = new HashingPassword();
 
-            if (result != null)
+            if(result != null && hash.VerifyPassword(
+                user.Password, result.Password, result.Salt))
             {
                 return true;
             }
