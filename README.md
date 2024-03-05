@@ -5,6 +5,7 @@
 * Hashing password -> databazaga password hashlanib tushadi.
 * Configuration -> har bir table uchun alohida sozlamalari mavjud.
 * Table'lar bir-biriga relation bo'lgan.
+* Login qismida tasdiqlash uchun email'ga xabar jo'natadi.
 
 
 ## Autorizatsiya qismi
