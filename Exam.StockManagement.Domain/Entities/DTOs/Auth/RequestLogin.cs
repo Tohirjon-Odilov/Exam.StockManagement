@@ -9,7 +9,6 @@ namespace Exam.StockManagement.Domain.Entities.DTOs.Auth
         [Email]
         public string Email { get; set; }
         [Required]
-        [Length(8, 16)]
         public string Password { get; set; }
     }
 }
