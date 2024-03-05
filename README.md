@@ -6,6 +6,7 @@
 * Configuration -> har bir table uchun alohida sozlamalari mavjud.
 * Table'lar bir-biriga relation bo'lgan.
 * Login qismida tasdiqlash uchun email'ga xabar jo'natadi.
+* Password va Email uchun regex ishlatilgan
 
 
 ## Autorizatsiya qismi
