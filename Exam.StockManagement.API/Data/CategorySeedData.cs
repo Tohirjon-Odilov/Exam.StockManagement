@@ -10,7 +10,7 @@ namespace Exam.StockManagement.API.Data
             var db = serviceProvider.GetRequiredService<StockManagementDbContext>();
             if (!db.Categories.Any())
             {
-                List<Category> transports = [
+                List<Category> Categories = [
                      new Category
                      {
                          CategoryName = "Kompyuter"
@@ -28,7 +28,7 @@ namespace Exam.StockManagement.API.Data
                          CategoryName = "Quloqchin"
                      }
                      ];
-                db.Categories.AddRange(transports);
+                db.Categories.AddRange(Categories);
                 await db.SaveChangesAsync();
             }
         }

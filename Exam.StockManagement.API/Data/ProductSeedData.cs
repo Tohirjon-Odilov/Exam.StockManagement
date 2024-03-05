@@ -10,7 +10,7 @@ namespace Exam.StockManagement.API.Data
             var db = serviceProvider.GetRequiredService<StockManagementDbContext>();
             if (!db.Products.Any())
             {
-                List<Product> transports = [
+                List<Product> Products = [
                      new Product
                      {
                          CategoryId = 1,
@@ -93,7 +93,7 @@ namespace Exam.StockManagement.API.Data
                         CreatedAt = DateTime.UtcNow,
                     },
                      ];
-                db.Products.AddRange(transports);
+                db.Products.AddRange(Products);
                 await db.SaveChangesAsync();
             }
         }
