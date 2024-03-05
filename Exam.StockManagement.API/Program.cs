@@ -76,6 +76,7 @@ namespace Exam.StockManagement.API
                 app.UseSwaggerUI();
             }
 
+            AsyncServiceScope scope = app.Services.CreateAsyncScope();
             app.UseStaticFiles();
 
             app.UseHttpsRedirection();
