@@ -7,8 +7,7 @@ namespace Exam.StockManagement.Domain.Entities.DTOs.Auth
         [Required]
         public required string? Name { get; set; }
         [Required]
-        [RegularExpression(@"\A[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@↵
-(?:[A-Z0-9-]+\.)+[A-Z]{2,6}\Z", ErrorMessage = "Yaroqsiz email kiritildi. Iltimos email manzilini " +
+        [RegularExpression(@"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$", ErrorMessage = "Yaroqsiz email kiritildi. Iltimos email manzilini " +
             "to'g'ri kiriting. Email manzil uchun standartlar: @gmail.com, @mail.ru, @yandex.ru, " +
             "@yahoo.com, @outlook.com, @hotmail.com, @bil.om, @mail standartlariga to'g'ri kelsin. Va yoki siz ishlatilishi kerak bo'lmagan belgidan foydalangansiz.")]
         public required string? Email { get; set; }
