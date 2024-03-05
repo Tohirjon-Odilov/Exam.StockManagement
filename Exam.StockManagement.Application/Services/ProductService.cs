@@ -2,6 +2,7 @@ using Exam.StockManagement.Application.Abstractions.IRepository;
 using Exam.StockManagement.Application.Abstractions.IServices;
 using Exam.StockManagement.Domain.Entities.DTOs;
 using Exam.StockManagement.Domain.Entities.Models;
+using Exam.StockManagement.Domain.Entities.ViewModels;
 
 namespace Exam.StockManagement.Application.Services
 {
@@ -14,11 +15,9 @@ namespace Exam.StockManagement.Application.Services
             this.productRepository = productRepository;
         }
 
-        public async Task<Product> Create(ProductDTO product)
+        public async Task<ProductViewModel> Create(ProductDTO product, string path)
         {
             ArgumentNullException.ThrowIfNull(product);
-
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", Guid.NewGuid() + "_" + product.ProductPicture.FileName);
 
             using (var stream = new FileStream(path, FileMode.Create))
             {
@@ -31,28 +30,58 @@ namespace Exam.StockManagement.Application.Services
                 ProductDescription = product.ProductDescription,
                 ProductName = product.ProductName,
                 ProductPrice = product.ProductPrice,
-                ProductPicture = path,
+                ProductPicture = path.Split("wwwroot")[1]
             };
 
             var result = await productRepository.Create(entity);
-
-            return result;
+            var entityResult =
+                new ProductViewModel()
+                {
+                    Id = result.Id,
+                    CategoryId = result.CategoryId,
+                    ProductName = result.ProductName,
+                    ProductDescription = result.ProductDescription,
+                    ProductPrice = result.ProductPrice,
+                    ProductPicture = result.ProductPicture
+                };
+            return entityResult;
         }
 
-        public async Task<List<Product>> GetAll()
+        public async Task<List<ProductViewModel>> GetAll()
         {
             ArgumentNullException.ThrowIfNull(productRepository);
             var result = await productRepository.GetAll();
-            return result.ToList();
+
+            return result.Select(x =>
+            new ProductViewModel()
+            {
+                Id = x.Id,
+                CategoryId = x.CategoryId,
+                ProductName = x.ProductName,
+                ProductDescription = x.ProductDescription,
+                ProductPrice = x.ProductPrice,
+                ProductPicture = x.ProductPicture
+            }).ToList();
         }
-        public async Task<List<Product>> GetByCategory(string categoryName)
+        public async Task<List<ProductViewModel>> GetByCategory(int categoryId)
         {
             ArgumentNullException.ThrowIfNull(productRepository);
-            var datas = await productRepository.GetAll();
-            var result = datas.Where(x => x.Category.CategoryName == categoryName);
+
+            var entity = await productRepository.GetAll();
+            var result = entity.Where(x => x.CategoryId == categoryId).ToList();
 
 
-            return result.ToList();
+
+            return result.Select(x =>
+            new ProductViewModel()
+            {
+                Id = x.Id,
+                CategoryId = x.CategoryId,
+                ProductName = x.ProductName,
+                ProductDescription = x.ProductDescription,
+                ProductPrice = x.ProductPrice,
+                ProductPicture = x.ProductPicture
+            }).ToList();
         }
 
         public async Task<string> Update(ProductDTO product)

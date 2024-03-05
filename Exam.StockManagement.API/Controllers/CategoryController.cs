@@ -48,7 +48,7 @@ namespace Exam.StockManagement.API.Controllers
 
         [HttpDelete]
         [IdentityFilter(Permissions.DeleteCategory)]
-        public async Task<IActionResult> Delete([FromForm] int id)
+        public async Task<IActionResult> Delete([FromForm, Required] int id)
         {
             var restult = await _categoryService.Delete(id);
             return Ok("Deleted");

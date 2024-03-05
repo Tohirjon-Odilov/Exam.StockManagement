@@ -1,12 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Exam.StockManagement.Domain.Entities.Common;
 
 namespace Exam.StockManagement.Domain.Entities.ViewModels
 {
-    public class ProductViewModel
+    public class ProductViewModel : Auditable
     {
+        public string ProductName { get; set; }
+        public int CategoryId { get; set; }
+        public int ProductPrice { get; set; }
+        public string? ProductDescription { get; set; }
+        public string? ProductPicture { get; set; }
     }
 }

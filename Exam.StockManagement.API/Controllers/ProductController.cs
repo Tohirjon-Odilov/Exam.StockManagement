@@ -4,6 +4,7 @@ using Exam.StockManagement.Domain.Entities.DTOs;
 using Exam.StockManagement.Domain.Entities.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace Exam.StockManagement.API.Controllers
 {
@@ -13,17 +14,21 @@ namespace Exam.StockManagement.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService productService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, IWebHostEnvironment webHostEnvironment)
         {
+            _webHostEnvironment = webHostEnvironment;
             this.productService = productService;
         }
 
         [HttpPost]
         [IdentityFilter(Permissions.CreateProduct)]
-        public async Task<IActionResult> Create([FromForm] ProductDTO product)
+        public async Task<IActionResult> Create([FromForm, Required] ProductDTO product)
         {
-            await productService.Create(product);
+            string path = Path.Combine(_webHostEnvironment.WebRootPath, "images", Guid.NewGuid() + "_" + product.ProductPicture.FileName);
+
+            await productService.Create(product, path);
 
             return Ok("Ma'lumot saqlandi");
         }
@@ -37,18 +42,23 @@ namespace Exam.StockManagement.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
+        [HttpPost]
         [IdentityFilter(Permissions.GetByCategoryProduct)]
-        public async Task<IActionResult> GetByCategory([FromForm] string name)
+        public async Task<IActionResult> GetByCategory([FromForm, Required] int categoryId)
         {
-            var result = await productService.GetByCategory(name);
+            var result = await productService.GetByCategory(categoryId);
+
+            if (result.Count == 0)
+            {
+                return StatusCode(404, "Bunday kategoriya mavjud emas!");
+            }
 
             return Ok(result);
         }
 
         [HttpPut]
         [IdentityFilter(Permissions.UpdateProduct)]
-        public async Task<IActionResult> Update([FromForm] ProductDTO product)
+        public async Task<IActionResult> Update([FromForm, Required] ProductDTO product)
         {
             return Ok(await productService.Update(product));
         }

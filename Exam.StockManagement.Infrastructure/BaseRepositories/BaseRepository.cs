@@ -45,7 +45,12 @@ namespace Exam.StockManagement.Infrastructure.BaseRepositories
         {
             return await _dbSet.ToListAsync();
         }
-
+        public async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> expression)
+        {
+            throw new NotImplementedException();
+            //var result = _context.Products.Include(expression);
+            //return await result.ToListAsync();
+        }
         public async Task<T> GetByAny(Expression<Func<T, bool>> expression)
         {
             try

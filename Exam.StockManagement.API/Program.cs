@@ -76,6 +76,8 @@ namespace Exam.StockManagement.API
                 app.UseSwaggerUI();
             }
 
+            app.UseStaticFiles();
+
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
