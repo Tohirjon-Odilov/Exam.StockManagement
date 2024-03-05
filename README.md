@@ -1,4 +1,14 @@
 # `Stock Management API` created by *Tohirjon.*
+
+## Loyiha ustunliklari
+* Seeddata -> ya'ni dasturda default qiymat mavjud.
+* Hashing password -> databazaga password hashlanib tushadi.
+* Configuration -> har bir table uchun alohida sozlamalari mavjud.
+* Table'lar bir-biriga relation bo'lgan.
+* Login qismida tasdiqlash uchun email'ga xabar jo'natadi.
+* Password va Email uchun regex ishlatilgan
+
+
 ## Autorizatsiya qismi
 > Ushbu controller user'larni ro'yhatga olish va user yokida adminligiga qarab ruhsatlarni berish uchun hizmat qiladi
 
