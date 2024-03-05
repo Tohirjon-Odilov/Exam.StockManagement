@@ -31,3 +31,13 @@
 
 ![image](https://github.com/Tohirjon-Odilov/Exam.StockManagement/assets/82634626/7f2aa9ad-01ce-411f-b83b-a1f96bf8cf81)
 
+> Email uchun validation
+
+![image](https://github.com/Tohirjon-Odilov/Exam.StockManagement/assets/82634626/9bfa8c29-f71f-4f5b-abb3-e9ae0029a819)
+
+> Password uchun validation
+
+![image](https://github.com/Tohirjon-Odilov/Exam.StockManagement/assets/82634626/5f7eedaa-231f-499f-b6cf-7b5c06fb48bc)
+
+
+
