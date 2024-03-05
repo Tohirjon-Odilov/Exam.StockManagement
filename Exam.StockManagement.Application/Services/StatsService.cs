@@ -25,17 +25,17 @@ namespace Exam.StockManagement.Application.Services
             return result.Count();
         }
 
-        public async Task<int> GetByCategorySum(int category_id)
+        public async Task<int> GetByCategorySum(string categoryName)
         {
             var datas = await statsRepository.GetAll();
-            var result = datas.Where(x => x.CategoryId == category_id);
+            var result = datas.Where(x => x.Category.CategoryName == categoryName);
             return result.Sum(x => x.ProductPrice);
         }
 
-        public async Task<int> GetByCategoryQuantity(int category_id)
+        public async Task<int> GetByCategoryQuantity(string categoryName)
         {
             var datas = await statsRepository.GetAll();
-            var result = datas.Where(x => x.CategoryId == category_id);
+            var result = datas.Where(x => x.Category.CategoryName == categoryName);
             return result.Count();
         }
     }

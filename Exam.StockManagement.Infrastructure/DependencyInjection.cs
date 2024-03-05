@@ -14,7 +14,7 @@ namespace Exam.StockManagement.Infrastructure
         {
             services.AddDbContext<StockManagementDbContext>(options =>
             {
-                options.UseNpgsql(conf.GetConnectionString("StockManagementConnectionString"));
+                options.UseLazyLoadingProxies().UseNpgsql(conf.GetConnectionString("StockManagementConnectionString"));
             });
 
             services.AddScoped<IUserRepository, UserRepository>();

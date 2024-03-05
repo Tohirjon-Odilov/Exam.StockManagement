@@ -60,7 +60,7 @@ namespace Exam.StockManagement.Application.Services.AuthServices
                 File.Delete(path);
 
                 return await GenerateToken(claims);
-            } catch (NotFoundException ex)
+            } catch (Exception)
             {
                 return new ResponseLogin { Token = "404" };
             }

@@ -30,7 +30,7 @@ namespace Exam.StockManagement.Application.Services
                 ProductDescription = product.ProductDescription,
                 ProductName = product.ProductName,
                 ProductPrice = product.ProductPrice,
-                ProductPicture = path.Split("wwwroot")[1]
+                ProductPicture = path.Split("wwwroot")[1],
             };
 
             var result = await productRepository.Create(entity);
@@ -38,7 +38,6 @@ namespace Exam.StockManagement.Application.Services
                 new ProductViewModel()
                 {
                     Id = result.Id,
-                    CategoryId = result.CategoryId,
                     ProductName = result.ProductName,
                     ProductDescription = result.ProductDescription,
                     ProductPrice = result.ProductPrice,
@@ -56,31 +55,29 @@ namespace Exam.StockManagement.Application.Services
             new ProductViewModel()
             {
                 Id = x.Id,
-                CategoryId = x.CategoryId,
                 ProductName = x.ProductName,
                 ProductDescription = x.ProductDescription,
                 ProductPrice = x.ProductPrice,
-                ProductPicture = x.ProductPicture
+                ProductPicture = x.ProductPicture,
+                CategoryName = x.Category.CategoryName,
             }).ToList();
         }
-        public async Task<List<ProductViewModel>> GetByCategory(int categoryId)
+        public async Task<List<ProductViewModel>> GetByCategory(string categoryName)
         {
             ArgumentNullException.ThrowIfNull(productRepository);
 
             var entity = await productRepository.GetAll();
-            var result = entity.Where(x => x.CategoryId == categoryId).ToList();
-
-
+            var result = entity.Where(x => x.Category.CategoryName.ToLower() == categoryName.ToLower()).ToList();
 
             return result.Select(x =>
             new ProductViewModel()
             {
                 Id = x.Id,
-                CategoryId = x.CategoryId,
                 ProductName = x.ProductName,
                 ProductDescription = x.ProductDescription,
                 ProductPrice = x.ProductPrice,
-                ProductPicture = x.ProductPicture
+                ProductPicture = x.ProductPicture,
+                CategoryName = x.Category.CategoryName,
             }).ToList();
         }
 

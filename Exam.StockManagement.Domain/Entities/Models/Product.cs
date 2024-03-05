@@ -14,6 +14,6 @@ namespace Exam.StockManagement.Domain.Entities.Models
         public string? ProductDescription { get; set; }
         public string? ProductPicture { get; set; }
 
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace Exam.StockManagement.API.Controllers
 
         [HttpPost]
         [IdentityFilter(Permissions.CreateProduct)]
-        public async Task<IActionResult> Create([FromForm, Required] ProductDTO product)
+        public async Task<IActionResult> Create([FromForm] ProductDTO product)
         {
             string path = Path.Combine(_webHostEnvironment.WebRootPath, "images", Guid.NewGuid() + "_" + product.ProductPicture.FileName);
 
@@ -42,11 +42,11 @@ namespace Exam.StockManagement.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
+        [HttpPost("{categoryName}")]
         [IdentityFilter(Permissions.GetByCategoryProduct)]
-        public async Task<IActionResult> GetByCategory([FromForm, Required] int categoryId)
+        public async Task<IActionResult> GetByCategory([Required] string categoryName)
         {
-            var result = await productService.GetByCategory(categoryId);
+            var result = await productService.GetByCategory(categoryName);
 
             if (result.Count == 0)
             {
@@ -58,7 +58,7 @@ namespace Exam.StockManagement.API.Controllers
 
         [HttpPut]
         [IdentityFilter(Permissions.UpdateProduct)]
-        public async Task<IActionResult> Update([FromForm, Required] ProductDTO product)
+        public async Task<IActionResult> Update([FromForm] ProductDTO product)
         {
             return Ok(await productService.Update(product));
         }

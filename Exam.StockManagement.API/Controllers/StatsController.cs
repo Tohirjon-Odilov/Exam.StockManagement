@@ -25,11 +25,11 @@ namespace Exam.StockManagement.API.Controllers
             var result = await _service.GetQuantity();
             return Ok(result);
         }
-        [HttpGet]
+        [HttpPost("{categoryName}")]
         [IdentityFilter(Permissions.GetByCategoryQuantity)]
-        public async Task<IActionResult> GetByCategoryQuantity([FromForm] int category_id)
+        public async Task<IActionResult> GetByCategoryQuantity(string categoryName)
         {
-            var result = await _service.GetByCategoryQuantity(category_id);
+            var result = await _service.GetByCategoryQuantity(categoryName);
             return Ok(result);
         }
         [HttpGet]
@@ -39,11 +39,11 @@ namespace Exam.StockManagement.API.Controllers
             var result = await _service.GetSum();
             return Ok(result);
         }
-        [HttpGet]
+        [HttpPost("{categoryName}")]
         [IdentityFilter(Permissions.GetQuantity)]
-        public async Task<IActionResult> GetByCategorySum([FromForm] int category_id)
+        public async Task<IActionResult> GetByCategorySum(string categoryName)
         {
-            var result = await _service.GetByCategorySum(category_id);
+            var result = await _service.GetByCategorySum(categoryName);
             return Ok(result);
         }
     }

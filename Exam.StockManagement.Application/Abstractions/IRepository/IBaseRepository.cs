@@ -8,7 +8,6 @@ namespace Exam.StockManagement.Application.Abstractions.IRepository
         public Task<T> Create(T entity);
         public Task<T> GetByAny(Expression<Func<T, bool>> expression);
         public Task<IEnumerable<T>> GetAll();
-        public Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> expression);
         public Task<bool> Delete(Expression<Func<T, bool>> expression);
         public Task<T> Update(T entity);
     }
