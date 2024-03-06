@@ -7,7 +7,25 @@
 * Table'lar bir-biriga relation bo'lgan.
 * Login qismida tasdiqlash uchun email'ga xabar jo'natadi.
 * Password va Email uchun regex ishlatilgan
-
+* Loyihada user-secret texnalogiyasi orqali turlixildagi appsettings.json ichidagi tarqalishi mumkin bo'lmagan ma'lumotlar yashirilgan uni sozlash uchun yoriqnomaga amal qiling
+> appsettings.json <Br>
+`"AllowedHosts": "*",`<Br>
+`"ConnectionStrings": {`<Br>
+  `"StockManagementConnectionString": "Host=localhost;Port=5432;Username=postgres;Password={Database Password kiritiladi};Database={Database nomi kiritiladi};"` <Br>
+`},`<Br>
+`"JWT": {`<Br>
+  `"ValidAudience": "Istalgan nom birilishi mumkin",`<Br>
+  `"ValidIssuer": "127.0.0.1",`<Br>
+  `"Secret": "bu yerga 32 dan kam bo'lmagan string kiritiladi",`<Br>
+  `"ExpireDate": "1000"`<Br>
+`},`<Br>
+`"EmailSettings": {`<Br>
+  `"MailServer": "smtp.gmail.com",`<Br>
+  `"MailPort": 587,`<Br>
+  `"SenderName": "Jo'natuvchi nomi kiritiladi",`<Br>
+  `"Sender": "app yaratilgan email kiritiladi",`<Br>
+  `"Password": "app'dagi kali kiritiladi"`<Br>
+`}`<Br>
 
 ## Autorizatsiya qismi
 > Ushbu controller user'larni ro'yhatga olish va user yokida adminligiga qarab ruhsatlarni berish uchun hizmat qiladi
