@@ -12,16 +12,16 @@ namespace Exam.StockManagement.Infrastructure.Persistance
         {
             Database.Migrate();
         }
-
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Category> Categories { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+
     }
 }

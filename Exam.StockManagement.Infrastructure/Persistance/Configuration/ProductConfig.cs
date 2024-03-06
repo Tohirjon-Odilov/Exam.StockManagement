@@ -9,10 +9,9 @@ namespace Exam.StockManagement.Infrastructure.Persistance.Configuration
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.Property(x => x.ProductName)
-                .HasMaxLength(100);
-
-            builder.Property(x => x.ProductDescription)
-                .HasMaxLength(100);
+                .HasMaxLength(150);
+            builder.Property(x => x.ProductPicture)
+                .HasMaxLength(250);
         }
     }
 }
