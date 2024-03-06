@@ -9,24 +9,25 @@
 * Password va Email uchun regex ishlatilgan
 * Loyihada user-secret texnalogiyasi orqali turlixildagi appsettings.json ichidagi tarqalishi mumkin bo'lmagan ma'lumotlar yashirilgan uni sozlash uchun yoriqnomaga amal qiling
 > appsettings.json <Br>
-`"AllowedHosts": "*",`<Br>
-`"ConnectionStrings": {`<Br>
-  `"StockManagementConnectionString": "Host=localhost;Port=5432;Username=postgres;Password={Database Password kiritiladi};Database={Database nomi kiritiladi};"` <Br>
-`},`<Br>
-`"JWT": {`<Br>
-  `"ValidAudience": "Istalgan nom birilishi mumkin",`<Br>
-  `"ValidIssuer": "127.0.0.1",`<Br>
-  `"Secret": "bu yerga 32 dan kam bo'lmagan string kiritiladi",`<Br>
-  `"ExpireDate": "1000"`<Br>
-`},`<Br>
-`"EmailSettings": {`<Br>
-  `"MailServer": "smtp.gmail.com",`<Br>
-  `"MailPort": 587,`<Br>
-  `"SenderName": "Jo'natuvchi nomi kiritiladi",`<Br>
-  `"Sender": "app yaratilgan email kiritiladi",`<Br>
-  `"Password": "app'dagi kali kiritiladi"`<Br>
-`}`<Br>
-
+```
+"AllowedHosts": "*",
+"ConnectionStrings": {
+  `"StockManagementConnectionString": "Host=localhost;Port=5432;Username=postgres;Password={Database Password kiritiladi};Database={Database nomi kiritiladi};"
+},
+"JWT": {
+  "ValidAudience": "Istalgan nom birilishi mumkin",
+  "ValidIssuer": "127.0.0.1",
+  "Secret": "bu yerga 32 dan kam bo'lmagan string kiritiladi",
+  "ExpireDate": "{bu yerga token amal qilish muddati minutlarda kiritiladi}"
+},
+"EmailSettings": {
+  "MailServer": "smtp.gmail.com",
+  "MailPort": 587,
+  "SenderName": "Jo'natuvchi nomi kiritiladi",
+  "Sender": "app yaratilgan email kiritiladi",
+  "Password": "app'dagi kali kiritiladi"
+}
+```
 ## Autorizatsiya qismi
 > Ushbu controller user'larni ro'yhatga olish va user yokida adminligiga qarab ruhsatlarni berish uchun hizmat qiladi
 
