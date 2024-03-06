@@ -5,7 +5,7 @@ namespace Exam.StockManagement.API.Data
 {
     public static class ProductSeedData
     {
-        public static async Task InitiliazeDataAsync(this IServiceProvider serviceProvider)
+        public static async Task InitiliazeProductDataAsync(this IServiceProvider serviceProvider)
         {
             var db = serviceProvider.GetRequiredService<StockManagementDbContext>();
             if (!db.Products.Any())

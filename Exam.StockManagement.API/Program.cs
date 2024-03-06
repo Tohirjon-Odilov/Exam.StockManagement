@@ -1,4 +1,5 @@
 
+using Exam.StockManagement.API.Data;
 using Exam.StockManagement.Application;
 using Exam.StockManagement.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -10,7 +11,7 @@ namespace Exam.StockManagement.API
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -77,6 +78,13 @@ namespace Exam.StockManagement.API
             }
 
             AsyncServiceScope scope = app.Services.CreateAsyncScope();
+            {
+                await scope.ServiceProvider.InitiliazeCategoryDataAsync();
+                await scope.ServiceProvider.InitiliazeProductDataAsync();
+            }
+
+            //app.Services.InitiliazeProductDataAsync();
+
             app.UseStaticFiles();
 
             app.UseHttpsRedirection();
