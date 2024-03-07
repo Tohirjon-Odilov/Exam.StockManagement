@@ -1,5 +1,7 @@
 # `Stock Management API` created by *Tohirjon.*
 
+<a name="id">salom</a>
+
 ## Loyiha ustunliklari
 * Seeddata -> ya'ni dasturda default qiymat mavjud.
 * Hashing password -> databazaga password hashlanib tushadi.
@@ -10,23 +12,17 @@
 * Loyihada user-secret texnalogiyasi orqali turlixildagi appsettings.json ichidagi tarqalishi mumkin bo'lmagan ma'lumotlar yashirilgan uni sozlash uchun yoriqnomaga amal qiling
 > appsettings.json <Br>
 ```
-"AllowedHosts": "*",
-"ConnectionStrings": {
-  `"StockManagementConnectionString": "Host=localhost;Port=5432;Username=postgres;Password={Database Password kiritiladi};Database={Database nomi kiritiladi};"
-},
-"JWT": {
-  "ValidAudience": "Istalgan nom birilishi mumkin",
-  "ValidIssuer": "127.0.0.1",
-  "Secret": "bu yerga 32 dan kam bo'lmagan string kiritiladi",
-  "ExpireDate": "{bu yerga token amal qilish muddati minutlarda kiritiladi}"
-},
-"EmailSettings": {
-  "MailServer": "smtp.gmail.com",
-  "MailPort": 587,
-  "SenderName": "Jo'natuvchi nomi kiritiladi",
-  "Sender": "app yaratilgan email kiritiladi",
-  "Password": "app'dagi kali kiritiladi"
-}
+dotnet user-secrets set "JWT:ValidIssuer" "127.0.0.1"
+dotnet user-secrets set "JWT:ValidAudience" "StockManagement"
+dotnet user-secrets set "JWT:Secret" "Your Secret Kod 32dan oshishi kerak"
+dotnet user-secrets set "JWT:ExpireDate" "1000"
+dotnet user-secrets set "EmailSettings:SenderName" "Najot Ta'lim"
+dotnet user-secrets set "EmailSettings:Sender" "app yaratilgan email kiritilishi kerak"
+dotnet user-secrets set "EmailSettings:Password" "appdagi kalit kiritilishi kerak"
+dotnet user-secrets set "EmailSettings:MailServer" "smtp.gmail.com"
+dotnet user-secrets set "EmailSettings:MailPort" "587"
+dotnet user-secrets set "ConnectionStrings:StockManagementConnectionString" "Host=localhost;Port=5432;Username=postgres;Password=DatabasePassword;Database=TesDBProduct;"
+dotnet user-secrets set "AllowedHosts" "*"
 ```
 ## Autorizatsiya qismi
 > Ushbu controller user'larni ro'yhatga olish va user yokida adminligiga qarab ruhsatlarni berish uchun hizmat qiladi
