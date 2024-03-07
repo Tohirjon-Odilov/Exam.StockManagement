@@ -1,7 +1,5 @@
 # `Stock Management API` created by *Tohirjon.*
 
-<a name="id">salom</a>
-
 ## Loyiha ustunliklari
 * Seeddata -> ya'ni dasturda default qiymat mavjud.
 * Hashing password -> databazaga password hashlanib tushadi.
@@ -53,6 +51,5 @@ dotnet user-secrets set "AllowedHosts" "*"
 > Password uchun validation
 
 ![image](https://github.com/Tohirjon-Odilov/Exam.StockManagement/assets/82634626/5f7eedaa-231f-499f-b6cf-7b5c06fb48bc)
-
 
 
