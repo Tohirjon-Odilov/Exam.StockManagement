@@ -8,8 +8,9 @@
 * Login qismida tasdiqlash uchun email'ga xabar jo'natadi.
 * Password va Email uchun regex ishlatilgan
 * Loyihada user-secret texnalogiyasi orqali turlixildagi appsettings.json ichidagi tarqalishi mumkin bo'lmagan ma'lumotlar yashirilgan uni sozlash uchun yoriqnomaga amal qiling
-> appsettings.json <Br>
+> Exam.StockManagement.APi'ga terminal orqali kirilib. Ushbi buyrug'lar kiritiladi.
 ```
+dotnet user-secrets init
 dotnet user-secrets set "JWT:ValidIssuer" "127.0.0.1"
 dotnet user-secrets set "JWT:ValidAudience" "StockManagement"
 dotnet user-secrets set "JWT:Secret" "Your Secret Kod 32dan oshishi kerak"
