@@ -21,13 +21,3 @@ namespace Exam.StockManagement.Application
     }
 }
 
-//bir hil danniy kesa save qimaslik kerak
-//birxil emaildan 2 kishi ro'yhatdan o'tmasligi kerak
-
-//login unique bo'lishi kerak
-
-//groupBy qo'shamiz name ga qarab
-
-//Name = userDTO.Name, Email = userDTO.Email, Login = userDTO.Login, Password = userDTO.Password, Role = userDTO.Role, har bitta polyasini update qilish uchun alohida PATCH api chiqarasilar
-
-//Auth yozib kelish Role and Permission based qlib
