@@ -23,7 +23,8 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpPost]
-        [IdentityFilter(Permissions.CreateProduct)]
+        [AllowAnonymous]
+        //[IdentityFilter(Permissions.CreateProduct)]
         public async Task<IActionResult> Create([FromForm] ProductDTO product)
         {
             string path = Path.Combine(_webHostEnvironment.WebRootPath, "images", Guid.NewGuid() + "_" + product.ProductPicture.FileName);
@@ -34,7 +35,8 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpGet]
-        [IdentityFilter(Permissions.GetAllProduct)]
+        [AllowAnonymous]
+        //[IdentityFilter(Permissions.GetAllProduct)]
         public async Task<IActionResult> GetAll()
         {
             var result = await productService.GetAll();
@@ -43,7 +45,8 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpPost("{categoryName}")]
-        [IdentityFilter(Permissions.GetByCategoryProduct)]
+        [AllowAnonymous]
+        //[IdentityFilter(Permissions.GetByCategoryProduct)]
         public async Task<IActionResult> GetByCategory([Required] string categoryName)
         {
             var result = await productService.GetByCategory(categoryName);

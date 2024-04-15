@@ -68,6 +68,16 @@ namespace Exam.StockManagement.API
                                        }
                                    };
                                });
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://api.tohirjon.uz")
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -88,6 +98,8 @@ namespace Exam.StockManagement.API
             app.UseStaticFiles();
 
             app.UseHttpsRedirection();
+
+            app.UseCors("AllowAll");
 
             app.UseAuthentication();
 
