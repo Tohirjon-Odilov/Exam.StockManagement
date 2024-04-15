@@ -73,7 +73,7 @@ namespace Exam.StockManagement.API
                 options.AddPolicy("AllowAll",
                     builder =>
                     {
-                        builder.WithOrigins("https://api.tohirjon.uz")
+                        builder.AllowAnyOrigin()
                                .AllowAnyMethod()
                                .AllowAnyHeader();
                     });
