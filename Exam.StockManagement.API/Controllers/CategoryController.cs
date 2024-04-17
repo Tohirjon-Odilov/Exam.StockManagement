@@ -20,8 +20,9 @@ namespace Exam.StockManagement.API.Controllers
         }
 
         [HttpPost]
-        [IdentityFilter(Permissions.CreateCategory)]
-        public async Task<IActionResult> Create([FromForm, Required] string name)
+        //[IdentityFilter(Permissions.CreateCategory)]
+        [AllowAnonymous]
+        public async Task<IActionResult> Create([Required] string name)
         {
             var result = await _categoryService.Create(name);
 
