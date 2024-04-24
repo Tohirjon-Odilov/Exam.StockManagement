@@ -1,0 +1,473 @@
+2024-04-24 08:42:14.813 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-04-24 08:42:15.917 +05:00 [DBG] Entity Framework Core 8.0.2 initialized 'StockManagementDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:8.0.2+5a671b9769f2d00a75b0ba42ce30c444a12407e3' with options: using lazy loading proxies 
+2024-04-24 08:42:16.032 +05:00 [DBG] Creating DbConnection.
+2024-04-24 08:42:16.172 +05:00 [DBG] Created DbConnection. (138ms).
+2024-04-24 08:42:16.291 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:16.519 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:16.627 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:16.739 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (108ms).
+2024-04-24 08:42:16.844 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-04-24 08:42:16.960 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (115ms).
+2024-04-24 08:42:17.084 +05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (241ms).
+2024-04-24 08:42:17.185 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:17.352 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:17.457 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:42:17.613 +05:00 [INF] Executed DbCommand (150ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:42:17.730 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:17.842 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (112ms).
+2024-04-24 08:42:17.970 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:18.088 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:18.216 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-24 08:42:18.315 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (98ms).
+2024-04-24 08:42:18.427 +05:00 [DBG] Initialized DbCommand for 'ExecuteReader' (211ms).
+2024-04-24 08:42:18.535 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-24 08:42:18.668 +05:00 [INF] Executed DbCommand (130ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-24 08:42:18.893 +05:00 [DBG] Closing data reader to 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:19.024 +05:00 [DBG] A data reader for 'StockManagement' on server 'tcp://localhost:5432' is being disposed after spending 138ms reading results.
+2024-04-24 08:42:19.126 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:19.225 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (99ms).
+2024-04-24 08:42:19.339 +05:00 [DBG] Migrating using database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:19.482 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:19.616 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:19.723 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:19.837 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (113ms).
+2024-04-24 08:42:19.942 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-04-24 08:42:20.041 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (98ms).
+2024-04-24 08:42:20.147 +05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (204ms).
+2024-04-24 08:42:20.250 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:20.351 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:20.454 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:42:20.592 +05:00 [INF] Executed DbCommand (135ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:42:20.692 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:20.806 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (114ms).
+2024-04-24 08:42:20.914 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:21.042 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:21.175 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:21.278 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (103ms).
+2024-04-24 08:42:21.441 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-04-24 08:42:21.552 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (111ms).
+2024-04-24 08:42:21.696 +05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (254ms).
+2024-04-24 08:42:21.844 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:21.943 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:22.040 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:42:22.148 +05:00 [INF] Executed DbCommand (106ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:42:22.253 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:22.356 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (103ms).
+2024-04-24 08:42:22.468 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:22.629 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:22.732 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-24 08:42:22.830 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (97ms).
+2024-04-24 08:42:22.936 +05:00 [DBG] Initialized DbCommand for 'ExecuteReader' (203ms).
+2024-04-24 08:42:23.044 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-24 08:42:23.148 +05:00 [INF] Executed DbCommand (102ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-24 08:42:23.260 +05:00 [DBG] Closing data reader to 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:23.364 +05:00 [DBG] A data reader for 'StockManagement' on server 'tcp://localhost:5432' is being disposed after spending 104ms reading results.
+2024-04-24 08:42:23.468 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:23.605 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (136ms).
+2024-04-24 08:42:23.722 +05:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-24 08:42:23.858 +05:00 [DBG] Compiling query expression: 
+'DbSet<Category>()
+    .Any()'
+2024-04-24 08:42:24.118 +05:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Categories AS c)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    Exam.StockManagement.Infrastructure.Persistance.StockManagementDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-04-24 08:42:24.241 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:24.351 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:24.448 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-24 08:42:24.563 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (115ms).
+2024-04-24 08:42:24.661 +05:00 [DBG] Initialized DbCommand for 'ExecuteReader' (213ms).
+2024-04-24 08:42:24.782 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Categories" AS c)
+2024-04-24 08:42:24.896 +05:00 [INF] Executed DbCommand (111ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Categories" AS c)
+2024-04-24 08:42:25.020 +05:00 [DBG] Closing data reader to 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:25.126 +05:00 [DBG] A data reader for 'StockManagement' on server 'tcp://localhost:5432' is being disposed after spending 108ms reading results.
+2024-04-24 08:42:25.231 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:25.337 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (106ms).
+2024-04-24 08:42:25.446 +05:00 [DBG] Compiling query expression: 
+'DbSet<Product>()
+    .Any()'
+2024-04-24 08:42:25.549 +05:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Products AS p)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    Exam.StockManagement.Infrastructure.Persistance.StockManagementDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-04-24 08:42:25.651 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:25.787 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:25.886 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-24 08:42:25.998 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (111ms).
+2024-04-24 08:42:26.107 +05:00 [DBG] Initialized DbCommand for 'ExecuteReader' (221ms).
+2024-04-24 08:42:26.220 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Products" AS p)
+2024-04-24 08:42:26.330 +05:00 [INF] Executed DbCommand (107ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Products" AS p)
+2024-04-24 08:42:26.434 +05:00 [DBG] Closing data reader to 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:26.544 +05:00 [DBG] A data reader for 'StockManagement' on server 'tcp://localhost:5432' is being disposed after spending 110ms reading results.
+2024-04-24 08:42:26.656 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:42:26.764 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (108ms).
+2024-04-24 08:42:26.916 +05:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-04-24 08:42:27.079 +05:00 [DBG] Hosting starting
+2024-04-24 08:42:27.212 +05:00 [INF] User profile is available. Using 'C:\Users\Tohirjon Odilov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-24 08:42:27.336 +05:00 [DBG] Reading data from file 'C:\Users\Tohirjon Odilov\AppData\Local\ASP.NET\DataProtection-Keys\key-5ca1b18b-e2a3-4285-a7d0-7e3c6bf2caf2.xml'.
+2024-04-24 08:42:27.459 +05:00 [DBG] Found key {5ca1b18b-e2a3-4285-a7d0-7e3c6bf2caf2}.
+2024-04-24 08:42:27.586 +05:00 [DBG] Considering key {5ca1b18b-e2a3-4285-a7d0-7e3c6bf2caf2} with expiration date 2024-07-02 15:09:18Z as default key.
+2024-04-24 08:42:27.686 +05:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-04-24 08:42:27.795 +05:00 [DBG] Decrypting secret element using Windows DPAPI.
+2024-04-24 08:42:28.180 +05:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-04-24 08:42:28.321 +05:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2024-04-24 08:42:28.436 +05:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2024-04-24 08:42:28.556 +05:00 [DBG] Using key {5ca1b18b-e2a3-4285-a7d0-7e3c6bf2caf2} as the default key.
+2024-04-24 08:42:28.672 +05:00 [DBG] Key ring with default key {5ca1b18b-e2a3-4285-a7d0-7e3c6bf2caf2} was loaded during application startup.
+2024-04-24 08:42:28.935 +05:00 [INF] Now listening on: https://localhost:7226
+2024-04-24 08:42:29.049 +05:00 [INF] Now listening on: http://localhost:5106
+2024-04-24 08:42:29.162 +05:00 [DBG] Loaded hosting startup assembly Exam.StockManagement.API
+2024-04-24 08:42:29.291 +05:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2024-04-24 08:42:29.397 +05:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2024-04-24 08:42:29.508 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-24 08:42:29.631 +05:00 [INF] Hosting environment: Development
+2024-04-24 08:42:29.741 +05:00 [INF] Content root path: D:\Developing\BackEnd\DotNet\Razratbotka\Exam.StockManagement\Exam.StockManagement.API
+2024-04-24 08:42:29.850 +05:00 [DBG] Hosting started
+2024-04-24 08:42:52.864 +05:00 [DBG] Connection id "0HN3422FF2K97" accepted.
+2024-04-24 08:42:52.983 +05:00 [DBG] Connection id "0HN3422FF2K97" started.
+2024-04-24 08:42:52.988 +05:00 [DBG] Connection id "0HN3422FF2K98" accepted.
+2024-04-24 08:42:53.125 +05:00 [DBG] Connection 0HN3422FF2K97 established using the following protocol: "Tls13"
+2024-04-24 08:42:53.201 +05:00 [DBG] Connection id "0HN3422FF2K98" started.
+2024-04-24 08:42:53.347 +05:00 [DBG] Connection 0HN3422FF2K98 established using the following protocol: "Tls13"
+2024-04-24 08:42:53.369 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7226/ - null null
+2024-04-24 08:42:53.584 +05:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-04-24 08:42:53.719 +05:00 [DBG] No candidates found for the request path '/'
+2024-04-24 08:42:53.842 +05:00 [DBG] Request did not match any endpoints
+2024-04-24 08:42:53.984 +05:00 [DBG] The request path  does not match the path filter
+2024-04-24 08:42:54.089 +05:00 [DBG] The request path / does not match a supported file type
+2024-04-24 08:42:54.286 +05:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2024-04-24 08:42:54.428 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7226/ - 404 0 null 1064.2717ms
+2024-04-24 08:42:54.538 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7226/, Response status code: 404
+2024-04-24 08:43:01.177 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - null null
+2024-04-24 08:43:01.292 +05:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2024-04-24 08:43:01.401 +05:00 [DBG] Request did not match any endpoints
+2024-04-24 08:43:01.576 +05:00 [DBG] Response markup is scheduled to include Browser Link script injection.
+2024-04-24 08:43:01.689 +05:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2024-04-24 08:43:01.816 +05:00 [DBG] Response markup was updated to include Browser Link script injection.
+2024-04-24 08:43:01.861 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - null null
+2024-04-24 08:43:01.864 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - null null
+2024-04-24 08:43:01.868 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - null null
+2024-04-24 08:43:01.869 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-24 08:43:01.933 +05:00 [DBG] Response markup was updated to include browser refresh script injection.
+2024-04-24 08:43:02.070 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - null null
+2024-04-24 08:43:01.985 +05:00 [DBG] No candidates found for the request path '/swagger/swagger-ui.css'
+2024-04-24 08:43:02.034 +05:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js'
+2024-04-24 08:43:02.123 +05:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js'
+2024-04-24 08:43:02.158 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 290.1835ms
+2024-04-24 08:43:02.211 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - 200 null text/html;charset=utf-8 1034.6169ms
+2024-04-24 08:43:02.240 +05:00 [DBG] Request did not match any endpoints
+2024-04-24 08:43:02.240 +05:00 [DBG] Request did not match any endpoints
+2024-04-24 08:43:02.267 +05:00 [DBG] Request did not match any endpoints
+2024-04-24 08:43:02.287 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - 200 null text/javascript; charset=UTF-8 217.1459ms
+2024-04-24 08:43:02.422 +05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-04-24 08:43:02.422 +05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-04-24 08:43:02.431 +05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-04-24 08:43:02.525 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 658.0536ms
+2024-04-24 08:43:02.538 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 674.4967ms
+2024-04-24 08:43:02.538 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - 200 143943 text/css 676.9758ms
+2024-04-24 08:43:02.995 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - null null
+2024-04-24 08:43:03.107 +05:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2024-04-24 08:43:03.220 +05:00 [DBG] Request did not match any endpoints
+2024-04-24 08:43:03.423 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 428.5634ms
+2024-04-24 08:44:33.119 +05:00 [DBG] Connection id "0HN3422FF2K98" received FIN.
+2024-04-24 08:44:33.551 +05:00 [DBG] The connection queue processing loop for 0HN3422FF2K98 completed.
+2024-04-24 08:44:33.551 +05:00 [DBG] Connection id "0HN3422FF2K98" is closed. The last processed stream ID was 0.
+2024-04-24 08:44:33.778 +05:00 [DBG] Connection id "0HN3422FF2K98" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-24 08:44:33.901 +05:00 [DBG] Connection id "0HN3422FF2K98" stopped.
+2024-04-24 08:49:28.377 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-04-24 08:49:32.026 +05:00 [DBG] Entity Framework Core 8.0.2 initialized 'StockManagementDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:8.0.2+5a671b9769f2d00a75b0ba42ce30c444a12407e3' with options: using lazy loading proxies 
+2024-04-24 08:49:32.170 +05:00 [DBG] Creating DbConnection.
+2024-04-24 08:49:32.332 +05:00 [DBG] Created DbConnection. (160ms).
+2024-04-24 08:49:32.462 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:32.682 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:32.830 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:32.964 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (130ms).
+2024-04-24 08:49:33.100 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-04-24 08:49:33.228 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (125ms).
+2024-04-24 08:49:33.356 +05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (257ms).
+2024-04-24 08:49:33.492 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:33.668 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:33.801 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:49:34.000 +05:00 [INF] Executed DbCommand (193ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:49:34.131 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:34.256 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (124ms).
+2024-04-24 08:49:34.404 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:34.527 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:34.666 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-24 08:49:34.811 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (145ms).
+2024-04-24 08:49:34.940 +05:00 [DBG] Initialized DbCommand for 'ExecuteReader' (274ms).
+2024-04-24 08:49:35.062 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-24 08:49:35.188 +05:00 [INF] Executed DbCommand (125ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-24 08:49:35.331 +05:00 [DBG] Closing data reader to 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:35.463 +05:00 [DBG] A data reader for 'StockManagement' on server 'tcp://localhost:5432' is being disposed after spending 137ms reading results.
+2024-04-24 08:49:35.587 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:35.718 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (130ms).
+2024-04-24 08:49:35.846 +05:00 [DBG] Migrating using database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:35.975 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:36.129 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:36.269 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:39.409 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (3140ms).
+2024-04-24 08:49:39.532 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-04-24 08:49:39.656 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (124ms).
+2024-04-24 08:49:39.777 +05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (244ms).
+2024-04-24 08:49:39.904 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:40.070 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:40.220 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:49:40.367 +05:00 [INF] Executed DbCommand (145ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:49:40.498 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:40.626 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (127ms).
+2024-04-24 08:49:40.753 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:40.920 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:41.044 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:41.172 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (127ms).
+2024-04-24 08:49:41.324 +05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-04-24 08:49:41.473 +05:00 [DBG] Created DbCommand for 'ExecuteScalar' (148ms).
+2024-04-24 08:49:41.597 +05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (272ms).
+2024-04-24 08:49:41.762 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:41.887 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:42.024 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:49:42.341 +05:00 [INF] Executed DbCommand (315ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-24 08:49:42.546 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:42.691 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (144ms).
+2024-04-24 08:49:42.817 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:42.954 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:43.084 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-24 08:49:43.207 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (123ms).
+2024-04-24 08:49:43.347 +05:00 [DBG] Initialized DbCommand for 'ExecuteReader' (263ms).
+2024-04-24 08:49:43.490 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-24 08:49:43.619 +05:00 [INF] Executed DbCommand (127ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-24 08:49:46.772 +05:00 [DBG] Closing data reader to 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:46.907 +05:00 [DBG] A data reader for 'StockManagement' on server 'tcp://localhost:5432' is being disposed after spending 135ms reading results.
+2024-04-24 08:49:47.025 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:47.160 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (135ms).
+2024-04-24 08:49:47.306 +05:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-24 08:49:47.460 +05:00 [DBG] Compiling query expression: 
+'DbSet<Category>()
+    .Any()'
+2024-04-24 08:49:47.728 +05:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Categories AS c)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    Exam.StockManagement.Infrastructure.Persistance.StockManagementDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-04-24 08:49:47.887 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:48.020 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:48.148 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-24 08:49:48.275 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (126ms).
+2024-04-24 08:49:48.396 +05:00 [DBG] Initialized DbCommand for 'ExecuteReader' (247ms).
+2024-04-24 08:49:48.525 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Categories" AS c)
+2024-04-24 08:49:48.656 +05:00 [INF] Executed DbCommand (128ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Categories" AS c)
+2024-04-24 08:49:48.785 +05:00 [DBG] Closing data reader to 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:48.930 +05:00 [DBG] A data reader for 'StockManagement' on server 'tcp://localhost:5432' is being disposed after spending 148ms reading results.
+2024-04-24 08:49:49.060 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:49.182 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (121ms).
+2024-04-24 08:49:49.303 +05:00 [DBG] Compiling query expression: 
+'DbSet<Product>()
+    .Any()'
+2024-04-24 08:49:49.423 +05:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Products AS p)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    Exam.StockManagement.Infrastructure.Persistance.StockManagementDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-04-24 08:49:49.550 +05:00 [DBG] Opening connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:49.697 +05:00 [DBG] Opened connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:49.835 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-24 08:49:49.968 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (132ms).
+2024-04-24 08:49:50.087 +05:00 [DBG] Initialized DbCommand for 'ExecuteReader' (251ms).
+2024-04-24 08:49:50.266 +05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Products" AS p)
+2024-04-24 08:49:50.397 +05:00 [INF] Executed DbCommand (129ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Products" AS p)
+2024-04-24 08:49:50.520 +05:00 [DBG] Closing data reader to 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:50.648 +05:00 [DBG] A data reader for 'StockManagement' on server 'tcp://localhost:5432' is being disposed after spending 127ms reading results.
+2024-04-24 08:49:50.808 +05:00 [DBG] Closing connection to database 'StockManagement' on server 'tcp://localhost:5432'.
+2024-04-24 08:49:53.991 +05:00 [DBG] Closed connection to database 'StockManagement' on server 'tcp://localhost:5432' (3183ms).
+2024-04-24 08:49:54.205 +05:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-04-24 08:49:54.408 +05:00 [DBG] Hosting starting
+2024-04-24 08:49:54.567 +05:00 [INF] User profile is available. Using 'C:\Users\Tohirjon Odilov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-24 08:49:54.709 +05:00 [DBG] Reading data from file 'C:\Users\Tohirjon Odilov\AppData\Local\ASP.NET\DataProtection-Keys\key-5ca1b18b-e2a3-4285-a7d0-7e3c6bf2caf2.xml'.
+2024-04-24 08:49:54.847 +05:00 [DBG] Found key {5ca1b18b-e2a3-4285-a7d0-7e3c6bf2caf2}.
+2024-04-24 08:49:54.992 +05:00 [DBG] Considering key {5ca1b18b-e2a3-4285-a7d0-7e3c6bf2caf2} with expiration date 2024-07-02 15:09:18Z as default key.
+2024-04-24 08:49:55.118 +05:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-04-24 08:49:55.241 +05:00 [DBG] Decrypting secret element using Windows DPAPI.
+2024-04-24 08:49:55.582 +05:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-04-24 08:50:01.712 +05:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2024-04-24 08:50:04.850 +05:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2024-04-24 08:50:04.968 +05:00 [DBG] Using key {5ca1b18b-e2a3-4285-a7d0-7e3c6bf2caf2} as the default key.
+2024-04-24 08:50:05.083 +05:00 [DBG] Key ring with default key {5ca1b18b-e2a3-4285-a7d0-7e3c6bf2caf2} was loaded during application startup.
+2024-04-24 08:50:05.362 +05:00 [INF] Now listening on: https://localhost:7226
+2024-04-24 08:50:05.476 +05:00 [INF] Now listening on: http://localhost:5106
+2024-04-24 08:50:05.589 +05:00 [DBG] Loaded hosting startup assembly Exam.StockManagement.API
+2024-04-24 08:50:05.703 +05:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2024-04-24 08:50:05.834 +05:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2024-04-24 08:50:05.959 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-24 08:50:06.077 +05:00 [INF] Hosting environment: Development
+2024-04-24 08:50:06.200 +05:00 [INF] Content root path: D:\Developing\BackEnd\DotNet\Razratbotka\Exam.StockManagement\Exam.StockManagement.API
+2024-04-24 08:50:06.327 +05:00 [DBG] Hosting started

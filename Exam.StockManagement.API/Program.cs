@@ -5,7 +5,9 @@ using Exam.StockManagement.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using System.Text;
+using TelegramSink;
 
 namespace Exam.StockManagement.API
 {
@@ -78,6 +80,17 @@ namespace Exam.StockManagement.API
                                .AllowAnyHeader();
                     });
             });
+
+            //Serilog implementation
+              Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.TeleSink("7013865899:AAFqnMVq_j3I8MIOEpwq7endYvgkMNcBtLc", "1633746526")
+                .WriteTo.File("log.txt")
+                .CreateLogger();
+
+            builder.Logging.AddSerilog();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
